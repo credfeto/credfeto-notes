@@ -1,2 +1,5 @@
-# cs-template
-C# Template
+# Notes
+Notes and stuff
+
+
+[Ethereum](ethereum/README.md)
