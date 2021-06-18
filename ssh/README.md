@@ -2,7 +2,7 @@
 
 ## Generate an elliptic curve key
 
-[See](https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
+See [https://blog.g3rt.nl/upgrade-your-ssh-keys.html](https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
 
 ```bash
 ssh-keygen -o -a 100 -t ed25519
