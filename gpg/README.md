@@ -15,7 +15,7 @@ gpg --export-secret-keys -a keyid > my_private_key.asc
 gpg --export -a keyid > my_public_key.asc
 ```
 
-Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible). On the new machine:
+Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible). 
 
 ## Import Key
 ```bash
