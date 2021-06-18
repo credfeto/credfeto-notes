@@ -4,4 +4,4 @@ Notes and stuff
 
 [Ethereum](ethereum/README.md)
 
-[GPG](gpg/gpg/README.md)
+[GPG](gpg/README.md)
