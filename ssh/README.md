@@ -7,6 +7,11 @@
 ```bash
 ssh-keygen -o -a 100 -t ed25519
 ```
+e.g. using a large number of rounds
+
+```bash
+ssh-keygen -o -a 1000000000 -t ed25519 -f d:\test_ed
+```
 
 ## Proxy RDP over ssh
 
