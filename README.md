@@ -7,3 +7,5 @@ Notes and stuff
 [GPG](gpg/README.md)
 
 [SSH](ssh/README.md)
+
+[Linux](linux/README.md)
