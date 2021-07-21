@@ -30,3 +30,12 @@ Connect:
 ```bash
 mstsc /v:localhost:9000
 ```
+
+
+## Generate a key compatible with TeamCity
+
+Teamcity requires keys to be in a specific format
+
+```bash
+ssh-keygen -t rsa -m PEM -f id_project
+```
