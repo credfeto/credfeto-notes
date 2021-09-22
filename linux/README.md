@@ -25,3 +25,25 @@ Remove all unused
 ```bash
 pacman -Qdtq | pacman -Rs -
 ```
+
+## Dynamic DNS with ddclient
+
+```bash
+sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+```
+
+Edit  /etc/ddclient.conf as:
+
+```
+daemon=1800
+syslog=yes
+protocol=cloudflare
+use=web
+web=checkip.dyndns.org/ 6
+web-skip=‘IP Address’
+ssl=yes
+login=<Cloudflare Login>
+password=<APIKEY>
+zone=example.com
+host.example.com
+```
