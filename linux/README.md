@@ -61,3 +61,9 @@ Enable Service
 ```bash
 sudo service ddclient status
 ```
+
+## Set Hostname
+
+```bash
+sudo hostnamectl set-hostname whatever.example.com
+```
