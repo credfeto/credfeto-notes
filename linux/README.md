@@ -47,3 +47,17 @@ password=<APIKEY>
 zone=example.com
 host.example.com
 ```
+
+Verify config
+
+```bash
+sudo service ddclient status
+sudo ddclient -query
+sudo ddclient -daemon=0 -verbose -noquiet
+```
+
+Enable Service
+
+```bash
+sudo service ddclient status
+```
