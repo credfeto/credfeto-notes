@@ -14,6 +14,12 @@ GO
 CREATE LOGIN reports WITH PASSWORD = 'somethingsecure', CHECK_EXPIRATION = ON
 ```
 
+## Change SQL Server password
+
+```sql
+alter login reports with password = 'secure password'
+```
+
 ## Grant rights to a user in db
 
 ```sql
