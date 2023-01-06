@@ -30,7 +30,7 @@ GO
 CREATE USER [Reports-User] FROM LOGIN [reports]
 GO
 
--- map that user to a role
+-- map that user to a role in the db
 EXEC sp_addrolemember 'reports', 'Reports-User';
 GO
 ```
