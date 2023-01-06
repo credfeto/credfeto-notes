@@ -8,16 +8,23 @@ GO
 ALTER DATABASE [MyDatabase] SET OFFLINE
 GO
 ```
+## Create Login to SQL Server
+
+```sql
+CREATE LOGIN reports WITH PASSWORD = 'somethingsecure', CHECK_EXPIRATION = ON
+```
+
 ## Grant rights to a user in db
 
 ```sql
-exec sp_adduser @loginame = 'reports', @name_in_db = 'Reports-User', @grpname = 'reports'
+use [Database-name]
+GO
 
-GRANT CONNECT TO reports;
+-- add DB user
+CREATE USER [Reports-User] FROM LOGIN [reports]
+GO
 
-
-create user [Reports-User] from login [reports]
-
-exec sp_addrolemember 'reports', 'Reports-User';
-
+-- map that user to a role
+EXEC sp_addrolemember 'reports', 'Reports-User';
+GO
 ```
