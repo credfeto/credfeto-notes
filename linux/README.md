@@ -67,3 +67,12 @@ sudo service ddclient status
 ```bash
 sudo hostnamectl set-hostname whatever.example.com
 ```
+
+
+## Correct Keyboard layout
+
+[See](https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613)
+
+```bash
+xmodmap -e 'keycode 49 = grave'
+```
