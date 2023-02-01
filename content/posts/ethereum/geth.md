@@ -1,5 +1,5 @@
 ---
-title: "Ethereum"
+title: "Geth"
 date: 2019-03-26T08:47:11+01:00
 description: Ethereum notes
 draft: false
@@ -10,16 +10,14 @@ tags:
   - Ethereum
   - Blockchain
 ---
-# Ethereum
+# Geth
 
-## Geth
-
-### Node
+## Node
 
 * list peers: ``admin.peers``
 * Node Info: ``admin.nodeInfo``
 
-### Sealers
+## Sealers
 
 * list sealers ``clique.getSigners()``
 * list propositions: ``clique.proposals``
@@ -27,7 +25,7 @@ tags:
 * add a new sealer: ``clique.propose("0x1234243214312", true)``
 * remove a sealer: ``clique.propose("0x1234243214312", false)``
 
-### Generate toml file
+## Generate toml file
 
 ```
 geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo > config.toml

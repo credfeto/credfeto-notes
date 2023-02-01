@@ -1,7 +1,7 @@
 ---
-title: "MSSQL Notes"
+title: "MSSQL Granting access"
 date: 2019-03-26T08:47:11+01:00
-description: MSSQL notes
+description: Access to DB and server
 draft: false
 categories:
   - SQL
@@ -9,15 +9,6 @@ tags:
   - MSSQL
   - Security
 ---
-# SQL Server notes
-
-## Take DB offline
-
-```sql
-USE [master]
-GO
-ALTER DATABASE [MyDatabase] SET OFFLINE
-GO
 ```
 ## Create Login to SQL Server
 
