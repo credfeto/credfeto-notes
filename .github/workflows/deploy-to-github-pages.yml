@@ -23,8 +23,12 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Remove gitignore
+        run: rm -f ./public/.gitignore
+        
       - name: Build
         run: hugo --minify
+
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
