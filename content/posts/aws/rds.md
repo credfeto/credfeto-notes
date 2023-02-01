@@ -1,6 +1,6 @@
 ---
 title: "AWS RDS SQL"
-date: 2019-03-26T08:47:11+01:00
+date: 2023-01-01T12:00:00
 description: MSSQL in AWS
 draft: false
 categories:
