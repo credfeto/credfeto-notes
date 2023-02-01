@@ -2,7 +2,7 @@
 baseURL = "https://markridgwell.com/"
 title = "Mark Ridgwell | Notes"
 # theme
-theme = "northendlab"
+theme = "holy"
 # post pagination
 paginate = "10"
 # post excerpt
@@ -64,16 +64,16 @@ code_copy_button = true # Turn on/off the code-copy-button for code-fields
 
 ######################## Site Variables #########################
 [params.variables]
-# Color Variables
-primary_color = "#47c4f1"
-secondary_color = "#9AC4F8"
-text_color = "#666666"
-text_color_dark = "#222222"
-body_color = "#fff"
-border_color = "#ACB9C4"
-black = "#000"
-white = "#fff"
-light = "#F8F8F8"
+## Color Variables
+#primary_color = "#47c4f1"
+#secondary_color = "#9AC4F8"
+#text_color = "#666666"
+#text_color_dark = "#222222"
+body_color = "#000"
+#border_color = "#ACB9C4"
+#black = "#000"
+#white = "#fff"
+#light = "#F8F8F8"
 
 # font variable
 # Give your font name from google font. add font weight using ":wght@" and separate by ";"
