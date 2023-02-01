@@ -26,6 +26,14 @@ Remove all unused
 pacman -Qdtq | pacman -Rs -
 ```
 
+Remove Multilib packages:
+
+```bash
+pacman -R `LANG=C pacman -Sl multilib | grep installed | cut -d ' ' -f 2`
+```
+
+Once done edit ``/etc/pacman.conf`` and comment out the ``[multilib]` section
+
 ## Dynamic DNS with ddclient
 
 ```bash
