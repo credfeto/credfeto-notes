@@ -2,10 +2,10 @@
 Notes and stuff
 
 
-[Ethereum](ethereum/README.md)
+[Ethereum](content/posts/ethereum/README.md)
 
-[GPG](gpg/README.md)
+[GPG](content/posts/gpg/README.md)
 
-[SSH](ssh/README.md)
+[SSH](content/posts/ssh/README.md)
 
-[Linux](linux/README.md)
+[Linux](content/posts/linux/README.md)
