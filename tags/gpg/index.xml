@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GPG on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/gpg/</link><description>Recent content in GPG on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/gpg/index.xml" rel="self" type="application/rss+xml"/><item><title>GPG</title><link>https://markridgwell.com/posts/gpg/readme/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/readme/</guid><description>&lt;h1 id="gpg">GPG&lt;/h1>
+&lt;h2 id="list-keys">List Keys&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gpg --list-keys
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="export-key">Export Key&lt;/h2>
+&lt;p>However, you may not want to bring all that trust data and lots of keys with you. If you&amp;rsquo;d just like to copy your keys over, first export them (as usual, we assume gpg is in your path):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gpg --export-secret-keys -a keyid &amp;gt; my_private_key.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg --export -a keyid &amp;gt; my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible).&lt;/p>
+&lt;h2 id="import-key">Import Key&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gpg --import my_private_key.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg --import my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
