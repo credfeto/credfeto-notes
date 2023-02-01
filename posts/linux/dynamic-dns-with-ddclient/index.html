@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Linux - Mark Ridgwell | Notes</title><meta name=description content="Linux Package Management Debian based Removing unused packages apt autoremove Arch based Removing unused packages List what is unused"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script>
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Dynamic DNS with DDClient - Mark Ridgwell | Notes</title><meta name=description content="Dynamic DNS with ddclient sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools Edit /etc/ddclient."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script>
 <script src=https://unpkg.com/@master/styles@1.13.0></script>
 <script src=https://unpkg.com/master-styles-group></script>
 <script src=https://unpkg.com/themes.js></script>
@@ -8,7 +8,7 @@ max-w:1200
 mx:auto
 px:32
 d:flex
-align-items:center"><div><a href=/ class="mr-3 font:extralight">Mark Ridgwell | Notes</a></div><div class=ml:auto></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Linux</div><div class="mt:16 f:fade-60"><time>Mar 26, 2019</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+align-items:center"><div><a href=/ class="mr-3 font:extralight">Mark Ridgwell | Notes</a></div><div class=ml:auto></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Dynamic DNS with DDClient</div><div class="mt:16 f:fade-60"><time>Mar 26, 2019</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
 _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
 _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
 _:where(code){font:90%;_v:middle}
@@ -42,11 +42,7 @@ _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
 _:where(ul){list-style-type:disc}
 _:where(ul,ol,blockquote){pl:1.5em}
 _:where(video,img){max-width:full}
-_:where(a,mark){text-underline-offset:3}"><h1 id=linux>Linux</h1><h2 id=package-management>Package Management</h2><h3 id=debian-based>Debian based</h3><h4 id=removing-unused-packages>Removing unused packages</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt autoremove
-</span></span></code></pre></div><h3 id=arch-based>Arch based</h3><h4 id=removing-unused-packages-1>Removing unused packages</h4><p>List what is unused</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -Qdtq
-</span></span></code></pre></div><p>Remove all unused</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -Qdtq <span class=p>|</span> pacman -Rs -
-</span></span></code></pre></div><p>Remove Multilib packages:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -R <span class=sb>`</span><span class=nv>LANG</span><span class=o>=</span>C pacman -Sl multilib <span class=p>|</span> grep installed <span class=p>|</span> cut -d <span class=s1>&#39; &#39;</span> -f 2<span class=sb>`</span>
-</span></span></code></pre></div><p>Once done edit <code>/etc/pacman.conf</code> and comment out the ``[multilib]` section</p><h2 id=dynamic-dns-with-ddclient>Dynamic DNS with ddclient</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+_:where(a,mark){text-underline-offset:3}"><h1 id=dynamic-dns-with-ddclient>Dynamic DNS with ddclient</h1><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
 </span></span></code></pre></div><p>Edit /etc/ddclient.conf as:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>daemon=1800
 </span></span><span class=line><span class=cl>syslog=yes
 </span></span><span class=line><span class=cl>protocol=cloudflare
@@ -63,5 +59,4 @@ _:where(a,mark){text-underline-offset:3}"><h1 id=linux>Linux</h1><h2 id=package-
 </span></span><span class=line><span class=cl>sudo ddclient -daemon<span class=o>=</span><span class=m>0</span> -verbose -noquiet
 </span></span></code></pre></div><p>Enable Service</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo service ddclient status
 </span></span></code></pre></div><h2 id=set-hostname>Set Hostname</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo hostnamectl set-hostname whatever.example.com
-</span></span></code></pre></div><h2 id=correct-keyboard-layout>Correct Keyboard layout</h2><p><a href=https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613>See</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>xmodmap -e <span class=s1>&#39;keycode 49 = grave&#39;</span>
 </span></span></code></pre></div></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8"></div></footer></div></div></body></html>
