@@ -1,6 +1,6 @@
 ---
 title: "MSSQL Granting access"
-date: 2019-03-26T08:47:11+01:00
+date: 2023-01-15T08:47:11+01:00
 description: Access to DB and server
 draft: false
 categories:

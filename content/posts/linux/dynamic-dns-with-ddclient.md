@@ -1,7 +1,7 @@
 ---
 title: "Dynamic DNS with DDClient"
-date: 2019-03-26T08:47:11+01:00
-description: DCLient
+date: 2022-05-11T08:47:11+01:00
+description: DDClient
 draft: false
 categories:
   - Linux

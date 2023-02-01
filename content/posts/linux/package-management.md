@@ -1,6 +1,6 @@
 ---
 title: "Package Management"
-date: 2019-03-26T08:47:11+01:00
+date: 2023-02-01T08:47:11+01:00
 description: Linux notes
 draft: false
 categories:

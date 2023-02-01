@@ -1,6 +1,6 @@
 ---
 title: "Correcting keyboard layout"
-date: 2019-03-26T08:47:11+01:00
+date: 2023-01-20T08:47:11+01:00
 description: Correcting keyboard layouts
 draft: false
 categories:
