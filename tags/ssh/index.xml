@@ -1,20 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSH on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/ssh/</link><description>Recent content in SSH on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>SSH</title><link>https://markridgwell.com/posts/ssh/readme/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/readme/</guid><description>&lt;h1 id="ssh">SSH&lt;/h1>
-&lt;h2 id="generate-an-elliptic-curve-key">Generate an elliptic curve key&lt;/h2>
-&lt;p>See &lt;a href="https://blog.g3rt.nl/upgrade-your-ssh-keys.html">https://blog.g3rt.nl/upgrade-your-ssh-keys.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -o -a &lt;span class="m">100&lt;/span> -t ed25519
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>e.g. using a large number of rounds&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -o -a &lt;span class="m">1000000000&lt;/span> -t ed25519 -f d:&lt;span class="se">\t&lt;/span>est_ed
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="proxy-rdp-over-ssh">Proxy RDP over ssh&lt;/h2>
-&lt;p>Start SSH:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh mark@sshbox -L 9000:machine-to-remote-to:3389
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where:&lt;/p>
-&lt;ul>
-&lt;li>&amp;lsquo;sshbox&amp;rsquo; is the SSH Proxy&lt;/li>
-&lt;li>9000 is the local port&lt;/li>
-&lt;/ul>
-&lt;p>Connect:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mstsc /v:localhost:9000
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="generate-a-key-compatible-with-teamcity">Generate a key compatible with TeamCity&lt;/h2>
-&lt;p>Teamcity requires keys to be in a specific format&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa -m PEM -f id_project
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSH on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/ssh/</link><description>Recent content in SSH on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>SSH</title><link>https://markridgwell.com/posts/ssh/readme/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/readme/</guid><description>SSH Generate an elliptic curve key See https://blog.g3rt.nl/upgrade-your-ssh-keys.html
+ssh-keygen -o -a 100 -t ed25519 e.</description></item></channel></rss>
