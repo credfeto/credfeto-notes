@@ -359,14 +359,14 @@ src/Data
 
 *.lock
 
-# ignore all logs
-.vscode/
-public/
-resources/
-*.log
-node_modules/
-package-lock.json
-package.json
-.env
-*.sh
-.DS_Store
+## ignore all logs
+#.vscode/
+#public/
+#resources/
+#*.log
+#node_modules/
+#package-lock.json
+#package.json
+#.env
+#*.sh
+#.DS_Store
