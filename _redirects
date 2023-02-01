@@ -1,0 +1,4 @@
+#http://www.markridgwell.com/* https://markridgwell.com/:splat 301!
+#https://www.christitus.com/* https://markridgwell.com/:splat 301!
+# External redirect Example
+#https://markridgwell.com/winget https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winget.ps1 200
