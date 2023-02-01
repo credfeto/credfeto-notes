@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="d:flex flex:col">
+    {{- partial "prose.html" . -}}
+
+    {{- range where site.RegularPages "Type" "in" site.Params.mainSections -}}
+
+    {{- partial "li.html" ( dict "url" .Permalink "title" .Title  ) -}}
+    {{- end -}}
+</div>
+{{ end }}
