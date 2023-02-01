@@ -25,7 +25,7 @@ jobs:
 
       - name: Remove gitignore
         run: rm -f ./public/.gitignore
-        
+
       - name: Build
         run: hugo --minify
 
