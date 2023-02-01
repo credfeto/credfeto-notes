@@ -1,3 +1,9 @@
+---
+title: "SSH"
+date: 2019-03-26T08:47:11+01:00
+description: SSH notes
+draft: false
+---
 # SSH
 
 ## Generate an elliptic curve key

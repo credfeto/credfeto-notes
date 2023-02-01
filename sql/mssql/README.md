@@ -1,3 +1,9 @@
+---
+title: "MSSQL Notes"
+date: 2019-03-26T08:47:11+01:00
+description: MSSQL notes
+draft: false
+---
 # SQL Server notes
 
 ## Take DB offline

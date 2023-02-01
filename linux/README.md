@@ -1,3 +1,9 @@
+---
+title: "Linux"
+date: 2019-03-26T08:47:11+01:00
+description: Linux notes
+draft: false
+---
 # Linux
 
 ## Package Management
