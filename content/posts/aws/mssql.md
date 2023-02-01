@@ -3,6 +3,12 @@ title: "AWS RDS SQL"
 date: 2019-03-26T08:47:11+01:00
 description: MSSQL in AWS
 draft: false
+categories:
+  - AWS
+  - SQL
+  - MSSQL
+tags:
+  - RDS
 ---
 
 # AWS RDS SQL
