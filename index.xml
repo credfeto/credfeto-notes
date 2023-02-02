@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Feb 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management</title><link>https://markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Feb 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management</title><link>https://notes.markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
 &lt;span>
 &lt;a href="#package-management">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -35,7 +35,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq | pacman -Rs -
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove multi-lib packages:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -R &lt;span style="color:#e6db74">`&lt;/span>LANG&lt;span style="color:#f92672">=&lt;/span>C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74">&amp;#39; &amp;#39;&lt;/span> -f 2&lt;span style="color:#e6db74">`&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done edit &lt;code>/etc/pacman.conf&lt;/code> and comment out the ``[multilib]` section&lt;/p></description></item><item><title>Correcting keyboard layout</title><link>https://markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/keyboard-layout/</guid><description>&lt;h1 id="correct-keyboard-layout" >Correct Keyboard layout
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done edit &lt;code>/etc/pacman.conf&lt;/code> and comment out the ``[multilib]` section&lt;/p></description></item><item><title>Correcting keyboard layout</title><link>https://notes.markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/keyboard-layout/</guid><description>&lt;h1 id="correct-keyboard-layout" >Correct Keyboard layout
 &lt;span>
 &lt;a href="#correct-keyboard-layout">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -43,7 +43,7 @@
 &lt;/span>
 &lt;/h1>&lt;p>&lt;a href="https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613">See&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>xmodmap -e &lt;span style="color:#e6db74">&amp;#39;keycode 49 = grave&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>MSSQL Granting access</title><link>https://markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0">&lt;code>## Create Login to SQL Server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>MSSQL Granting access</title><link>https://notes.markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0">&lt;code>## Create Login to SQL Server
 ```sql
 CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON
 &lt;/code>&lt;/pre>&lt;h2 id="change-sql-server-password" >Change SQL Server password
@@ -69,7 +69,7 @@ CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EX
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- map that user to a role in the db
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">EXEC&lt;/span> sp_addrolemember &lt;span style="color:#e6db74">&amp;#39;reports&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Reports-User&amp;#39;&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AWS RDS SQL</title><link>https://markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://markridgwell.com/posts/aws/rds/</guid><description>&lt;h1 id="aws-rds-sql" >AWS RDS SQL
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AWS RDS SQL</title><link>https://notes.markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/aws/rds/</guid><description>&lt;h1 id="aws-rds-sql" >AWS RDS SQL
 &lt;span>
 &lt;a href="#aws-rds-sql">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -103,7 +103,7 @@ CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EX
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_task_status &lt;span style="color:#f92672">@&lt;/span>db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Taking MSSQL DB offline</title><link>https://markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" >Take DB offline
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Taking MSSQL DB offline</title><link>https://notes.markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" >Take DB offline
 &lt;span>
 &lt;a href="#take-db-offline">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -113,7 +113,7 @@ CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EX
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> [MyDatabase] &lt;span style="color:#66d9ef">SET&lt;/span> OFFLINE
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Dynamic DNS with DDClient</title><link>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Dynamic DNS with DDClient</title><link>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
 &lt;span>
 &lt;a href="#dynamic-dns-with-ddclient">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -145,14 +145,14 @@ host.example.com
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo hostnamectl set-hostname whatever.example.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Check for ignored files that are committed to git</title><link>https://markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/git/finding-ignored-files/</guid><description>&lt;h1 id="check-for-ignored-files-that-are-checked-into-git" >Check for ignored files that are checked into git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Check for ignored files that are committed to git</title><link>https://notes.markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/git/finding-ignored-files/</guid><description>&lt;h1 id="check-for-ignored-files-that-are-checked-into-git" >Check for ignored files that are checked into git
 &lt;span>
 &lt;a href="#check-for-ignored-files-that-are-checked-into-git">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git ls-files | grep -v server&lt;span style="color:#ae81ff">\.&lt;/span>pfx | grep -v &lt;span style="color:#ae81ff">\.&lt;/span>gitignore | git check-ignore --stdin -v --no-index
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>GPG - managing keys</title><link>https://markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" >GPG
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>GPG - managing keys</title><link>https://notes.markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" >GPG
 &lt;span>
 &lt;a href="#gpg">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -183,7 +183,7 @@ host.example.com
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --import my_private_key.asc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --import my_public_key.asc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Geth</title><link>https://markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Geth</title><link>https://notes.markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
 &lt;span>
 &lt;a href="#geth">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -219,7 +219,7 @@ host.example.com
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;pre tabindex="0">&lt;code>geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
-&lt;/code>&lt;/pre></description></item><item><title>SSH - Generating Keys</title><link>https://markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" >SSH
+&lt;/code>&lt;/pre></description></item><item><title>SSH - Generating Keys</title><link>https://notes.markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" >SSH
 &lt;span>
 &lt;a href="#ssh">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
