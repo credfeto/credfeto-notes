@@ -1,5 +1,5 @@
 ############################ Default configuration #########################
-baseURL = "https://markridgwell.com/"
+baseURL = "https://notes.markridgwell.com/"
 title = "Mark Ridgwell | Notes"
 # theme
 theme = "anubis"
