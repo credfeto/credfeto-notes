@@ -2,7 +2,7 @@
 baseURL = "https://markridgwell.com/"
 title = "Mark Ridgwell | Notes"
 # theme
-theme = "holy"
+theme = "anubis"
 # post pagination
 paginate = "10"
 # post excerpt
@@ -12,18 +12,64 @@ summaryLength = "10"
 # disable language
 disableLanguages = [""] # desable language from here
 
+[params]
+author = "Mark Ridgwell"
+#dateFormat=""
+paginationSinglePost = true
+style = "dark-without-switcher"
+readMore = false
+readNextPosts = 2
+copyCodeButton = true
+rssAsSocialIcon = true
+
+# Graphcomment support
+graphcommentId = ""
+
+# utteranc.es support
+utterancesRepo = "credfeto/notes"  # mandatory
+utterancesTheme = "github-dark" # optional
+utterancesIssue = "pathname" # optional
+utterancesLabel = "website" # optional
+
+[[params.social]]
+id = "linkedin"
+name = "mridgwel/"
+
+[[params.social]]
+id = "github"
+name = "credfeto"
+
+#[[params.social]]
+#id = "rss"
+#url = "https://notes.markridgwell.com/rss"
+
+[menu]
+
+#[[menu.main]]
+#identifier = "about"
+#name = "About"
+#url = "/about/"
+#weight = 1
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 2
+
+[[menu.main]]
+name = "Posts"
+identifier = "archive"
+url = "/posts/"
+weight = 3
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[markup.goldmark.renderer]
+unsafe = true
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
-[markup.goldmark.renderer]
-    unsafe = true
-[markup.highlight]
-      codeFences = true
-      guessSyntax = true
-      hl_Lines = ""
-      lineNoStart = 1
-      lineNos = false
-      lineNumbersInTable = false
-      tabWidth = 4
-      noClasses = false
 

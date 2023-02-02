@@ -3,6 +3,7 @@ title: "SSH - Generating Keys"
 date: 2017-03-26T08:47:11+01:00
 description: SSH notes
 draft: false
+favorite: true
 categories:
   - Security
   - SSH
