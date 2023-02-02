@@ -1,3 +1,261 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://markridgwell.com/</link><description>Recent content on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Feb 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management</title><link>https://markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/package-management/</guid><description>Package Management Debian based Removing unused packages apt autoremove Arch based Removing unused packages List what is unused</description></item><item><title>Correcting keyboard layout</title><link>https://markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/keyboard-layout/</guid><description>Correct Keyboard layout See
-xmodmap -e &amp;#39;keycode 49 = grave&amp;#39;</description></item><item><title>MSSQL Granting access</title><link>https://markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/login-user/</guid><description>## Create Login to SQL Server ```sql CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON Change SQL Server password alter login reports with password = &amp;#39;secure password&amp;#39; Grant rights to a user in db use [Database-name] GO -- add DB user CREATE USER [Reports-User] FROM LOGIN [reports] GO -- map that user to a role in the db EXEC sp_addrolemember &amp;#39;reports&amp;#39;, &amp;#39;Reports-User&amp;#39;; GO</description></item><item><title>AWS RDS SQL</title><link>https://markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://markridgwell.com/posts/aws/rds/</guid><description>AWS RDS SQL Backup RDS to S3 backup and restore documentation exec msdb.</description></item><item><title>Taking MSSQL DB offline</title><link>https://markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/offline/</guid><description>Take DB offline USE [master] GO ALTER DATABASE [MyDatabase] SET OFFLINE GO</description></item><item><title>Dynamic DNS with DDClient</title><link>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>Dynamic DNS with ddclient sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools Edit /etc/ddclient.</description></item><item><title>Check for ignored files that are committed to git</title><link>https://markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/git/finding-ignored-files/</guid><description>Check for ignored files that are checked into git git ls-files | grep -v server\.</description></item><item><title>GPG - managing keys</title><link>https://markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/managing-keys/</guid><description>GPG List Keys gpg --list-keys Export Key However, you may not want to bring all that trust data and lots of keys with you.</description></item><item><title>Geth</title><link>https://markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ethereum/geth/</guid><description>Geth Node list peers: admin.peers Node Info: admin.nodeInfo Sealers list sealers clique.</description></item><item><title>SSH - Generating Keys</title><link>https://markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/generating-keys/</guid><description>SSH Generate an elliptic curve key See https://blog.g3rt.nl/upgrade-your-ssh-keys.html
-ssh-keygen -o -a 100 -t ed25519 e.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Feb 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management</title><link>https://markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
+&lt;span>
+&lt;a href="#package-management">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="debian-based" >Debian based
+&lt;span>
+&lt;a href="#debian-based">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h3 id="removing-unused-packages" >Removing unused packages
+&lt;span>
+&lt;a href="#removing-unused-packages">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt autoremove
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="arch-based" >Arch based
+&lt;span>
+&lt;a href="#arch-based">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h3 id="removing-unused-packages-1" >Removing unused packages
+&lt;span>
+&lt;a href="#removing-unused-packages-1">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>List what is unused&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove all unused&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq | pacman -Rs -
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove multi-lib packages:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -R &lt;span style="color:#e6db74">`&lt;/span>LANG&lt;span style="color:#f92672">=&lt;/span>C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74">&amp;#39; &amp;#39;&lt;/span> -f 2&lt;span style="color:#e6db74">`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done edit &lt;code>/etc/pacman.conf&lt;/code> and comment out the ``[multilib]` section&lt;/p></description></item><item><title>Correcting keyboard layout</title><link>https://markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/keyboard-layout/</guid><description>&lt;h1 id="correct-keyboard-layout" >Correct Keyboard layout
+&lt;span>
+&lt;a href="#correct-keyboard-layout">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;a href="https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613">See&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>xmodmap -e &lt;span style="color:#e6db74">&amp;#39;keycode 49 = grave&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>MSSQL Granting access</title><link>https://markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0">&lt;code>## Create Login to SQL Server
+```sql
+CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON
+&lt;/code>&lt;/pre>&lt;h2 id="change-sql-server-password" >Change SQL Server password
+&lt;span>
+&lt;a href="#change-sql-server-password">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">alter&lt;/span> login reports &lt;span style="color:#66d9ef">with&lt;/span> password &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;secure password&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grant-rights-to-a-user-in-db" >Grant rights to a user in db
+&lt;span>
+&lt;a href="#grant-rights-to-a-user-in-db">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>use [&lt;span style="color:#66d9ef">Database&lt;/span>&lt;span style="color:#f92672">-&lt;/span>name]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- add DB user
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">USER&lt;/span> [Reports&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#66d9ef">User&lt;/span>] &lt;span style="color:#66d9ef">FROM&lt;/span> LOGIN [reports]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- map that user to a role in the db
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">EXEC&lt;/span> sp_addrolemember &lt;span style="color:#e6db74">&amp;#39;reports&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Reports-User&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AWS RDS SQL</title><link>https://markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://markridgwell.com/posts/aws/rds/</guid><description>&lt;h1 id="aws-rds-sql" >AWS RDS SQL
+&lt;span>
+&lt;a href="#aws-rds-sql">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="backup-rds-to-s3" >Backup RDS to S3
+&lt;span>
+&lt;a href="#backup-rds-to-s3">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/">backup and restore documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_backup_database
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>source_db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>, &lt;span style="color:#f92672">@&lt;/span>s3_arn_to_backup_to&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>overwrite_S3_backup_file&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="restore-from-s3" >Restore from S3
+&lt;span>
+&lt;a href="#restore-from-s3">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_restore_database
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>restore_db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>s3_arn_to_restore_from&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="check-rds-status" >Check RDS Status
+&lt;span>
+&lt;a href="#check-rds-status">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_task_status &lt;span style="color:#f92672">@&lt;/span>db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Taking MSSQL DB offline</title><link>https://markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" >Take DB offline
+&lt;span>
+&lt;a href="#take-db-offline">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>USE [master]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> [MyDatabase] &lt;span style="color:#66d9ef">SET&lt;/span> OFFLINE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Dynamic DNS with DDClient</title><link>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
+&lt;span>
+&lt;a href="#dynamic-dns-with-ddclient">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit /etc/ddclient.conf as:&lt;/p>
+&lt;pre tabindex="0">&lt;code>daemon=1800
+syslog=yes
+protocol=cloudflare
+use=web
+web=checkip.dyndns.org/ 6
+web-skip=‘IP Address’
+ssl=yes
+login=&amp;lt;Cloudflare Login&amp;gt;
+password=&amp;lt;APIKEY&amp;gt;
+zone=example.com
+host.example.com
+&lt;/code>&lt;/pre>&lt;p>Verify config&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -query
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -daemon&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> -verbose -noquiet
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable Service&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-hostname" >Set Hostname
+&lt;span>
+&lt;a href="#set-hostname">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo hostnamectl set-hostname whatever.example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Check for ignored files that are committed to git</title><link>https://markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/git/finding-ignored-files/</guid><description>&lt;h1 id="check-for-ignored-files-that-are-checked-into-git" >Check for ignored files that are checked into git
+&lt;span>
+&lt;a href="#check-for-ignored-files-that-are-checked-into-git">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git ls-files | grep -v server&lt;span style="color:#ae81ff">\.&lt;/span>pfx | grep -v &lt;span style="color:#ae81ff">\.&lt;/span>gitignore | git check-ignore --stdin -v --no-index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>GPG - managing keys</title><link>https://markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" >GPG
+&lt;span>
+&lt;a href="#gpg">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="list-keys" >List Keys
+&lt;span>
+&lt;a href="#list-keys">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --list-keys
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="export-key" >Export Key
+&lt;span>
+&lt;a href="#export-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>However, you may not want to bring all that trust data and lots of keys with you. If you&amp;rsquo;d just like to copy your keys over, first export them (as usual, we assume gpg is in your path):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --export-secret-keys -a keyid &amp;gt; my_private_key.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --export -a keyid &amp;gt; my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible).&lt;/p>
+&lt;h2 id="import-key" >Import Key
+&lt;span>
+&lt;a href="#import-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --import my_private_key.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --import my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Geth</title><link>https://markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
+&lt;span>
+&lt;a href="#geth">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="node" >Node
+&lt;span>
+&lt;a href="#node">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>list peers: &lt;code>admin.peers&lt;/code>&lt;/li>
+&lt;li>Node Info: &lt;code>admin.nodeInfo&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sealers" >Sealers
+&lt;span>
+&lt;a href="#sealers">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>list sealers &lt;code>clique.getSigners()&lt;/code>&lt;/li>
+&lt;li>list propositions: &lt;code>clique.proposals&lt;/code>&lt;/li>
+&lt;li>discard a proposition: &lt;code>clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code>&lt;/li>
+&lt;li>add a new sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code>&lt;/li>
+&lt;li>remove a sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="generate-toml-file" >Generate toml file
+&lt;span>
+&lt;a href="#generate-toml-file">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;pre tabindex="0">&lt;code>geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
+&lt;/code>&lt;/pre></description></item><item><title>SSH - Generating Keys</title><link>https://markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" >SSH
+&lt;span>
+&lt;a href="#ssh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="generate-an-elliptic-curve-key" >Generate an elliptic curve key
+&lt;span>
+&lt;a href="#generate-an-elliptic-curve-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>See &lt;a href="https://blog.g3rt.nl/upgrade-your-ssh-keys.html">https://blog.g3rt.nl/upgrade-your-ssh-keys.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">100&lt;/span> -t ed25519
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>e.g. using a large number of rounds&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">1000000000&lt;/span> -t ed25519 -f d:&lt;span style="color:#ae81ff">\t&lt;/span>est_ed
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="proxy-rdp-over-ssh" >Proxy RDP over ssh
+&lt;span>
+&lt;a href="#proxy-rdp-over-ssh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Start SSH:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh mark@sshbox -L 9000:machine-to-remote-to:3389
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where:&lt;/p>
+&lt;ul>
+&lt;li>&amp;lsquo;sshbox&amp;rsquo; is the SSH Proxy&lt;/li>
+&lt;li>9000 is the local port&lt;/li>
+&lt;/ul>
+&lt;p>Connect:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mstsc /v:localhost:9000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="generate-a-key-compatible-with-teamcity" >Generate a key compatible with TeamCity
+&lt;span>
+&lt;a href="#generate-a-key-compatible-with-teamcity">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Teamcity requires keys to be in a specific format&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -m PEM -f id_project
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

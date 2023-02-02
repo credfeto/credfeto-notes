@@ -1,2 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on Mark Ridgwell | Notes</title><link>https://markridgwell.com/categories/security/</link><description>Recent content in Security on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 12 Jan 2022 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/categories/security/index.xml" rel="self" type="application/rss+xml"/><item><title>GPG - managing keys</title><link>https://markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/managing-keys/</guid><description>GPG List Keys gpg --list-keys Export Key However, you may not want to bring all that trust data and lots of keys with you.</description></item><item><title>SSH - Generating Keys</title><link>https://markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/generating-keys/</guid><description>SSH Generate an elliptic curve key See https://blog.g3rt.nl/upgrade-your-ssh-keys.html
-ssh-keygen -o -a 100 -t ed25519 e.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on Mark Ridgwell | Notes</title><link>https://markridgwell.com/categories/security/</link><description>Mark Ridgwell | Notes (Security)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 12 Jan 2022 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/categories/security/index.xml" rel="self" type="application/rss+xml"/><item><title>GPG - managing keys</title><link>https://markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" >GPG
+&lt;span>
+&lt;a href="#gpg">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="list-keys" >List Keys
+&lt;span>
+&lt;a href="#list-keys">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --list-keys
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="export-key" >Export Key
+&lt;span>
+&lt;a href="#export-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>However, you may not want to bring all that trust data and lots of keys with you. If you&amp;rsquo;d just like to copy your keys over, first export them (as usual, we assume gpg is in your path):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --export-secret-keys -a keyid &amp;gt; my_private_key.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --export -a keyid &amp;gt; my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible).&lt;/p>
+&lt;h2 id="import-key" >Import Key
+&lt;span>
+&lt;a href="#import-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --import my_private_key.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --import my_public_key.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH - Generating Keys</title><link>https://markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" >SSH
+&lt;span>
+&lt;a href="#ssh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="generate-an-elliptic-curve-key" >Generate an elliptic curve key
+&lt;span>
+&lt;a href="#generate-an-elliptic-curve-key">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>See &lt;a href="https://blog.g3rt.nl/upgrade-your-ssh-keys.html">https://blog.g3rt.nl/upgrade-your-ssh-keys.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">100&lt;/span> -t ed25519
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>e.g. using a large number of rounds&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">1000000000&lt;/span> -t ed25519 -f d:&lt;span style="color:#ae81ff">\t&lt;/span>est_ed
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="proxy-rdp-over-ssh" >Proxy RDP over ssh
+&lt;span>
+&lt;a href="#proxy-rdp-over-ssh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Start SSH:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh mark@sshbox -L 9000:machine-to-remote-to:3389
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where:&lt;/p>
+&lt;ul>
+&lt;li>&amp;lsquo;sshbox&amp;rsquo; is the SSH Proxy&lt;/li>
+&lt;li>9000 is the local port&lt;/li>
+&lt;/ul>
+&lt;p>Connect:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mstsc /v:localhost:9000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="generate-a-key-compatible-with-teamcity" >Generate a key compatible with TeamCity
+&lt;span>
+&lt;a href="#generate-a-key-compatible-with-teamcity">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Teamcity requires keys to be in a specific format&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -m PEM -f id_project
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

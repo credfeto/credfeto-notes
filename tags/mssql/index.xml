@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSSQL on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/mssql/</link><description>Recent content in MSSQL on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 15 Jan 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/mssql/index.xml" rel="self" type="application/rss+xml"/><item><title>MSSQL Granting access</title><link>https://markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/login-user/</guid><description>## Create Login to SQL Server ```sql CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON Change SQL Server password alter login reports with password = &amp;#39;secure password&amp;#39; Grant rights to a user in db use [Database-name] GO -- add DB user CREATE USER [Reports-User] FROM LOGIN [reports] GO -- map that user to a role in the db EXEC sp_addrolemember &amp;#39;reports&amp;#39;, &amp;#39;Reports-User&amp;#39;; GO</description></item><item><title>Taking MSSQL DB offline</title><link>https://markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/offline/</guid><description>Take DB offline USE [master] GO ALTER DATABASE [MyDatabase] SET OFFLINE GO</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSSQL on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/mssql/</link><description>Mark Ridgwell | Notes (MSSQL)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 15 Jan 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/mssql/index.xml" rel="self" type="application/rss+xml"/><item><title>MSSQL Granting access</title><link>https://markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0">&lt;code>## Create Login to SQL Server
+```sql
+CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON
+&lt;/code>&lt;/pre>&lt;h2 id="change-sql-server-password" >Change SQL Server password
+&lt;span>
+&lt;a href="#change-sql-server-password">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">alter&lt;/span> login reports &lt;span style="color:#66d9ef">with&lt;/span> password &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;secure password&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grant-rights-to-a-user-in-db" >Grant rights to a user in db
+&lt;span>
+&lt;a href="#grant-rights-to-a-user-in-db">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>use [&lt;span style="color:#66d9ef">Database&lt;/span>&lt;span style="color:#f92672">-&lt;/span>name]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- add DB user
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">USER&lt;/span> [Reports&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#66d9ef">User&lt;/span>] &lt;span style="color:#66d9ef">FROM&lt;/span> LOGIN [reports]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- map that user to a role in the db
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">EXEC&lt;/span> sp_addrolemember &lt;span style="color:#e6db74">&amp;#39;reports&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Reports-User&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Taking MSSQL DB offline</title><link>https://markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" >Take DB offline
+&lt;span>
+&lt;a href="#take-db-offline">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>USE [master]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> [MyDatabase] &lt;span style="color:#66d9ef">SET&lt;/span> OFFLINE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dynamic DNS on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/dynamic-dns/</link><description>Recent content in Dynamic DNS on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 11 May 2022 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/dynamic-dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic DNS with DDClient</title><link>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>Dynamic DNS with ddclient sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools Edit /etc/ddclient.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dynamic DNS on Mark Ridgwell | Notes</title><link>https://markridgwell.com/tags/dynamic-dns/</link><description>Mark Ridgwell | Notes (Dynamic DNS)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 11 May 2022 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/tags/dynamic-dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic DNS with DDClient</title><link>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
+&lt;span>
+&lt;a href="#dynamic-dns-with-ddclient">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit /etc/ddclient.conf as:&lt;/p>
+&lt;pre tabindex="0">&lt;code>daemon=1800
+syslog=yes
+protocol=cloudflare
+use=web
+web=checkip.dyndns.org/ 6
+web-skip=‘IP Address’
+ssl=yes
+login=&amp;lt;Cloudflare Login&amp;gt;
+password=&amp;lt;APIKEY&amp;gt;
+zone=example.com
+host.example.com
+&lt;/code>&lt;/pre>&lt;p>Verify config&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -query
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -daemon&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> -verbose -noquiet
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable Service&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-hostname" >Set Hostname
+&lt;span>
+&lt;a href="#set-hostname">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo hostnamectl set-hostname whatever.example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

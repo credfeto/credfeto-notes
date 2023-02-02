@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ethereum on Mark Ridgwell | Notes</title><link>https://markridgwell.com/categories/ethereum/</link><description>Recent content in Ethereum on Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/categories/ethereum/index.xml" rel="self" type="application/rss+xml"/><item><title>Geth</title><link>https://markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ethereum/geth/</guid><description>Geth Node list peers: admin.peers Node Info: admin.nodeInfo Sealers list sealers clique.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ethereum on Mark Ridgwell | Notes</title><link>https://markridgwell.com/categories/ethereum/</link><description>Mark Ridgwell | Notes (Ethereum)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://markridgwell.com/categories/ethereum/index.xml" rel="self" type="application/rss+xml"/><item><title>Geth</title><link>https://markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
+&lt;span>
+&lt;a href="#geth">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="node" >Node
+&lt;span>
+&lt;a href="#node">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>list peers: &lt;code>admin.peers&lt;/code>&lt;/li>
+&lt;li>Node Info: &lt;code>admin.nodeInfo&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sealers" >Sealers
+&lt;span>
+&lt;a href="#sealers">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>list sealers &lt;code>clique.getSigners()&lt;/code>&lt;/li>
+&lt;li>list propositions: &lt;code>clique.proposals&lt;/code>&lt;/li>
+&lt;li>discard a proposition: &lt;code>clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code>&lt;/li>
+&lt;li>add a new sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code>&lt;/li>
+&lt;li>remove a sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="generate-toml-file" >Generate toml file
+&lt;span>
+&lt;a href="#generate-toml-file">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;pre tabindex="0">&lt;code>geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
+&lt;/code>&lt;/pre></description></item></channel></rss>
