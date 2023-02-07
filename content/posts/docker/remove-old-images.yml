@@ -1,0 +1,30 @@
+---
+title: "Docker remove images"
+date: 2019-03-26T08:47:11+01:00
+description: Removing old images
+draft: false
+categories:
+  - Docker
+tags:
+  - Dokcer
+---
+# Docker 
+
+## Reomove unused images, containers and configuration
+
+- all stopped containers
+- all networks not used by at least one container
+- all dangling images
+- all dangling build cache
+
+```bash
+docker system prune
+```
+
+## Remove unused images
+
+- all dangling images
+
+```bash
+docker image prune
+```
