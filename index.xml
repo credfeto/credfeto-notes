@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 07 Feb 2023 10:31:00 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker remove images</title><link>https://notes.markridgwell.com/posts/docker/remove-old-images/</link><pubDate>Tue, 07 Feb 2023 10:31:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/docker/remove-old-images/</guid><description>&lt;h1 id="docker" >Docker
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 10:11:53 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>WebStorm fix jest</title><link>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</link><pubDate>Wed, 08 Feb 2023 10:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</guid><description>&lt;h1 id="webstorm---fixing-jest" >Webstorm - fixing jest
+&lt;span>
+&lt;a href="#webstorm---fixing-jest">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>When this error appears on opening new project&lt;/p>
+&lt;pre tabindex="0">&lt;code> ● Test suite failed to run
+Jest encountered an unexpected token
+Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+By default &amp;#34;node_modules&amp;#34; folder is ignored by transformers.
+Here&amp;#39;s what you can do:
+• If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+• If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+• To have some of your &amp;#34;node_modules&amp;#34; files transformed, you can specify a custom &amp;#34;transformIgnorePatterns&amp;#34; in your config.
+• If you need a custom transformation specify a &amp;#34;transform&amp;#34; option in your config.
+• If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the &amp;#34;moduleNameMapper&amp;#34; config option.
+You&amp;#39;ll find more details and examples of these config options in the docs:
+https://jestjs.io/docs/configuration
+&lt;/code>&lt;/pre>&lt;p>Edit Run configuration and set the configuration file for jest to point to the one in the project:&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/1020430/217805536-e6709b02-8785-4904-9d15-23dbba048f0d.png" alt="image">&lt;/p></description></item><item><title>Docker remove images</title><link>https://notes.markridgwell.com/posts/docker/remove-old-images/</link><pubDate>Tue, 07 Feb 2023 10:31:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/docker/remove-old-images/</guid><description>&lt;h1 id="docker" >Docker
 &lt;span>
 &lt;a href="#docker">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
@@ -27,28 +48,7 @@
 &lt;li>all dangling images&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker image prune
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>WebStorm fix jest</title><link>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</link><pubDate>Tue, 07 Feb 2023 10:31:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</guid><description>&lt;h1 id="webstorm---fixing-jest" >Webstorm - fixing jest
-&lt;span>
-&lt;a href="#webstorm---fixing-jest">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>When this error appears on opening new project&lt;/p>
-&lt;pre tabindex="0">&lt;code> ● Test suite failed to run
-Jest encountered an unexpected token
-Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
-Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
-By default &amp;#34;node_modules&amp;#34; folder is ignored by transformers.
-Here&amp;#39;s what you can do:
-• If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
-• If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
-• To have some of your &amp;#34;node_modules&amp;#34; files transformed, you can specify a custom &amp;#34;transformIgnorePatterns&amp;#34; in your config.
-• If you need a custom transformation specify a &amp;#34;transform&amp;#34; option in your config.
-• If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the &amp;#34;moduleNameMapper&amp;#34; config option.
-You&amp;#39;ll find more details and examples of these config options in the docs:
-https://jestjs.io/docs/configuration
-&lt;/code>&lt;/pre>&lt;p>Edit Run configuration and set the configuration file for jest to point to the one in the project:&lt;/p>
-&lt;p>&lt;img src="https://user-images.githubusercontent.com/1020430/217805536-e6709b02-8785-4904-9d15-23dbba048f0d.png" alt="image">&lt;/p></description></item><item><title>Package Management</title><link>https://notes.markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Package Management</title><link>https://notes.markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
 &lt;span>
 &lt;a href="#package-management">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
