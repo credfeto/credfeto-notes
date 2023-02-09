@@ -1,6 +1,6 @@
 ---
 title: "WebStorm fix jest"
-date: 2023-02-07T10:31:00+00:00
+date: 2023-02-08T10:11:53+00:00
 description: Fixing running jest tests in webstorm
 draft: false
 categories:
