@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/linux/</link><description>Mark Ridgwell | Notes (Linux)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Feb 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management</title><link>https://notes.markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/linux/</link><description>Mark Ridgwell | Notes (Linux)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 12 Feb 2023 14:30:00 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" >Logrotate
+&lt;span>
+&lt;a href="#logrotate">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
+&lt;h2 id="etclogrotateconf" >/etc/logrotate.conf
+&lt;span>
+&lt;a href="#etclogrotateconf">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;pre tabindex="0">&lt;code># see &amp;#34;man logrotate&amp;#34; for details
+# rotate log files daily
+daily
+# keep 2 weeks worth of backlogs
+rotate 14
+# restrict maximum size of log files
+size 10M
+# create new (empty) log files after rotating old ones
+create
+# uncomment this if you want your log files compressed
+compress
+compresscmd /usr/bin/zstd
+compressext .zst
+compressoptions -T0 --long
+uncompresscmd /usr/bin/unzstd
+# Logs are moved into directory for rotation
+# olddir /var/log/archive
+# Ignore pacman saved files
+tabooext + .pacorig .pacnew .pacsave
+# Arch packages drop log rotation information into this directory
+include /etc/logrotate.d
+/var/log/wtmp {
+monthly
+create 0664 root utmp
+minsize 1M
+rotate 1
+}
+/var/log/btmp {
+missingok
+monthly
+create 0600 root utmp
+rotate 1
+}
+&lt;/code>&lt;/pre></description></item><item><title>Package Management</title><link>https://notes.markridgwell.com/posts/linux/package-management/</link><pubDate>Wed, 01 Feb 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management/</guid><description>&lt;h1 id="package-management" >Package Management
 &lt;span>
 &lt;a href="#package-management">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
