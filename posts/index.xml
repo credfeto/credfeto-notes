@@ -4,14 +4,13 @@
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
-&lt;h2 id="etclogrotateconf" >/etc/logrotate.conf
-&lt;span>
-&lt;a href="#etclogrotateconf">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># see &amp;#34;man logrotate&amp;#34; for details
+&lt;/h1>&lt;p>&lt;code>logotate.conf&lt;/code> by default is set up to rotate logs once a week and keep for 4 weeks. Compression isn&amp;rsquo;t enabled by
+default. This doesn&amp;rsquo;t work well with small disks with services that are verbose with what is logged. This sets the
+default configuration so that it is better suited.&lt;/p>
+&lt;p>note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p>
+&lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
+&lt;p>/etc/logrotate.conf:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># see &amp;#34;man logrotate&amp;#34; for details
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># rotate log files daily
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>daily
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
