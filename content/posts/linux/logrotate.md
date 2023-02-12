@@ -14,7 +14,7 @@ See [ArchWiki](https://wiki.archlinux.org/title/Logrotate)
 
 ## /etc/logrotate.conf
 
-```
+```text
 # see "man logrotate" for details
 # rotate log files daily 
 daily
@@ -32,7 +32,8 @@ create
 compress
 compresscmd /usr/bin/zstd
 compressext .zst
-compressoptions -T0 --long
+# maximum compression (uses more memory)
+compressoptions -T0 --long --ultra -22
 uncompresscmd /usr/bin/unzstd
 
 # Logs are moved into directory for rotation
