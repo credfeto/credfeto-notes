@@ -43,6 +43,6 @@ pacman -R `LANG=C pacman -Sl multilib | grep installed | cut -d ' ' -f 2`
 Once done edit ``/etc/pacman.conf`` and comment out the ``[multilib]` section
 
 Re-install all AUR packages
-``bash
+```bash
 yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)
 ```
