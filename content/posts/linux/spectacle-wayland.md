@@ -8,10 +8,11 @@ categories:
 tags:
   - Wayland
   - Screenshot
+---
+# Fixing spectable screenshot issues on Wayland
 
-# Fixing spectable  screenshot issue on Wayland
+## Can't take screenshot with Spectacle
 
-Can't take screenshot with Spectacle
 
 ```
 Screenshot request failed: "The process is not authorized to take a screenshot"
