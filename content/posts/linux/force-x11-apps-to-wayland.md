@@ -28,3 +28,18 @@ export MOZ_ENABLE_WAYLAND=1
 * Brave: Go to ``brave://flags#ozone-platform-hint``
 
 Switch "Preferred Ozone platform" to "Auto"
+
+## Discord
+
+Docs say change the launch command to use
+
+```bash
+discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+```
+
+however gertting core dump
+
+Currently working 
+```bash
+discord --disable-gpu-sandbox
+```
