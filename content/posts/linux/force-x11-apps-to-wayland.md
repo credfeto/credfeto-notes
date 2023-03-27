@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - Wayland
+  - Brave
+  - Chrome
   - FireFox
 ---
 # Fixing spectable screenshot issues on Wayland
