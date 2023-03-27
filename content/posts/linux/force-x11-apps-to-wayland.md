@@ -1,6 +1,6 @@
 ---
 title: "Forcing usage of wayland over xwayland"
-date: 2023-03-24T17:20:00+00:00
+date: 2023-03-27T09:53:00+01:00
 description: Getting apps to use wayland rather than xwayland
 draft: false
 categories:
