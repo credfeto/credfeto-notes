@@ -24,7 +24,7 @@ export MOZ_ENABLE_WAYLAND=1
 
 ## Chrome/Brave
 
-Go to chrome://flags#ozone-platform-hint
-Go to brave://flags#ozone-platform-hint
+* Chrome: Go to ``chrome://flags#ozone-platform-hint``
+* Brave: Go to ``brave://flags#ozone-platform-hint``
 
 Switch "Preferred Ozone platform" to "Auto"
