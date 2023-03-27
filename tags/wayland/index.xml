@@ -20,8 +20,10 @@
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h2>&lt;p>Go to chrome://flags#ozone-platform-hint
-Go to brave://flags#ozone-platform-hint&lt;/p>
+&lt;/h2>&lt;ul>
+&lt;li>Chrome: Go to &lt;code>chrome://flags#ozone-platform-hint&lt;/code>&lt;/li>
+&lt;li>Brave: Go to &lt;code>brave://flags#ozone-platform-hint&lt;/code>&lt;/li>
+&lt;/ul>
 &lt;p>Switch &amp;ldquo;Preferred Ozone platform&amp;rdquo; to &amp;ldquo;Auto&amp;rdquo;&lt;/p></description></item><item><title>Spectacle wayland</title><link>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</link><pubDate>Fri, 24 Mar 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</guid><description>&lt;h1 id="fixing-spectable-screenshot-issues-on-wayland" >Fixing spectable screenshot issues on Wayland
 &lt;span>
 &lt;a href="#fixing-spectable-screenshot-issues-on-wayland">
