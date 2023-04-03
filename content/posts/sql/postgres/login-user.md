@@ -28,3 +28,9 @@ GRANT CONNECT ON DATABASE my_db TO my_user;
 GRANT pg_read_all_data TO my_user;
 GRANT pg_write_all_data TO my_user;
 ```
+
+## Granting access to a schema in a db
+
+```sql
+GRANT USAGE ON SCHEMA public TO my_user;
+```
