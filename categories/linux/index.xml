@@ -53,7 +53,6 @@
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>useradd &amp;lt;serviceuser&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">``&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Disk Cloning</title><link>https://notes.markridgwell.com/posts/linux/clone-disk/</link><pubDate>Sat, 01 Apr 2023 15:54:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/clone-disk/</guid><description>&lt;h1 id="cloning-disk" >Cloning disk
 &lt;span>
 &lt;a href="#cloning-disk">
