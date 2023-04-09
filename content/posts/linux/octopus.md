@@ -16,10 +16,10 @@ tags:
 
 ## Required packages
 
+* acl - for setfacl (should be installed for systemd already)
 * inetutils - for hostname 
-* 
 ```bash
-pacman -Sy inetutils
+pacman -Sy acl inetutils
 ```
 
 
