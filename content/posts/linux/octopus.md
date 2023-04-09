@@ -14,6 +14,14 @@ tags:
 [See](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux)
 
 
+## Required packages
+
+* inetutils - for hostname 
+* 
+```bash
+pacman -Sy inetutils
+```
+
 
 ## Linux X64
 As root
