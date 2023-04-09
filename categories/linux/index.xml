@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/linux/</link><description>Mark Ridgwell | Notes (Linux)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 01 Apr 2023 15:54:01 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Disk Cloning</title><link>https://notes.markridgwell.com/posts/linux/clone-disk/</link><pubDate>Sat, 01 Apr 2023 15:54:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/clone-disk/</guid><description>&lt;h1 id="cloning-disk" >Cloning disk
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/linux/</link><description>Mark Ridgwell | Notes (Linux)</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 09 Apr 2023 17:20:00 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Octopus tentacle install arch</title><link>https://notes.markridgwell.com/posts/linux/octopus/</link><pubDate>Sun, 09 Apr 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/octopus/</guid><description>&lt;h1 id="installing-polling-octopus-tentacle-on-arch" >Installing polling octopus tentacle on arch
+&lt;span>
+&lt;a href="#installing-polling-octopus-tentacle-on-arch">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;a href="https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux">See&lt;/a>&lt;/p>
+&lt;h2 id="linux-x64" >Linux X64
+&lt;span>
+&lt;a href="#linux-x64">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>As root&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle -O tentacle-linux_x64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /opt/octopus
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tentacle-linux_x65.tar.gz -C /opt/octopus
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Follow the prompts in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/configure-tentacle.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/Tentacle service --install --start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux-arm64" >Linux ARM64
+&lt;span>
+&lt;a href="#linux-arm64">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>As root&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://octopus.com/downloads/latest/Linux_arm64TarGz/OctopusTentacle -O tentacle-linux_arm64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /opt/octopus
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tentacle-linux_arm64.tar.gz -C /opt/octopus
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Follow the prompts in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/configure-tentacle.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/Tentacle service --install --start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="for-each-service" >For each service
+&lt;span>
+&lt;a href="#for-each-service">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>useradd &amp;lt;serviceuser&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">``&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Disk Cloning</title><link>https://notes.markridgwell.com/posts/linux/clone-disk/</link><pubDate>Sat, 01 Apr 2023 15:54:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/clone-disk/</guid><description>&lt;h1 id="cloning-disk" >Cloning disk
 &lt;span>
 &lt;a href="#cloning-disk">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
