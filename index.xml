@@ -12,10 +12,10 @@
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;ul>
+&lt;li>acl - for setfacl (should be installed for systemd already)&lt;/li>
 &lt;li>inetutils - for hostname&lt;/li>
-&lt;li>&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Sy inetutils
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Sy acl inetutils
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux-x64" >Linux X64
 &lt;span>
 &lt;a href="#linux-x64">
