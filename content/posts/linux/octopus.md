@@ -7,7 +7,7 @@ categories:
   - Linux
 tags:
   - Octopus
-  - Tendtacle
+  - Tendacle
 ---
 # Installing polling octopus tentacle on arch
 
