@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 09 Apr 2023 17:20:00 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Octopus tentacle install arch</title><link>https://notes.markridgwell.com/posts/linux/octopus/</link><pubDate>Sun, 09 Apr 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/octopus/</guid><description>&lt;h1 id="installing-polling-octopus-tentacle-on-arch" >Installing polling octopus tentacle on arch
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/</link><description>Mark Ridgwell | Notes</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 11 Apr 2023 18:14:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring firewall with UFW</title><link>https://notes.markridgwell.com/posts/linux/firewall/</link><pubDate>Tue, 11 Apr 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firewall/</guid><description>&lt;h1 id="configuring-firewall-with-ufw" >Configuring firewall with UFW
+&lt;span>
+&lt;a href="#configuring-firewall-with-ufw">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>See &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04">Also&lt;/a>&lt;/p>
+&lt;p>Set default policy&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw default deny incoming
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw default allow outgoing
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Allow SSH&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw allow ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw enable
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Status&lt;/p>
+&lt;pre tabindex="0">&lt;code>sudo ufw status verbose
+&lt;/code>&lt;/pre></description></item><item><title>Octopus tentacle install arch</title><link>https://notes.markridgwell.com/posts/linux/octopus/</link><pubDate>Sun, 09 Apr 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/octopus/</guid><description>&lt;h1 id="installing-polling-octopus-tentacle-on-arch" >Installing polling octopus tentacle on arch
 &lt;span>
 &lt;a href="#installing-polling-octopus-tentacle-on-arch">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
