@@ -56,6 +56,7 @@ Use Reflector to find the fastest 20 mirrors in the specifiec country
 
 ```bash
 sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --country gb``
+```
 
 Install reflector with pacman hook
 
