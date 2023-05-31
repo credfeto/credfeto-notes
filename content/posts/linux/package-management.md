@@ -63,3 +63,14 @@ Install reflector with pacman hook
 ```bash
 yay -S reflector reflector-pacman-hook-git
 ```
+
+Edit ``/etc/xdg/reflector/reflector.conf`` to configure reflector update
+
+Enable reflector to be run at startup  (also can enable reflector.timer to run weekly)
+```bash
+sudo systemctl enable --now reflector.service
+```
+
+```
+
+
