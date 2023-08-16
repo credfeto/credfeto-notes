@@ -1,12 +1,13 @@
 ---
 title: "Configuring firejail"
 date: 2023-04-11T18:14:11+01:00
-description: Firewalll
+description: Sandboxing with firejail
 draft: false
 categories:
   - Linux
 tags:
-  - Firewall
+  - Sandbox
+  - Firejail
 ---
 #  Configuring firewall with UFW
 
