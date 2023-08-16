@@ -1,6 +1,6 @@
 ---
 title: "Configuring firejail"
-date: 2023-04-11T18:14:11+01:00
+date: 2023-08-16T18:14:11+01:00
 description: Sandboxing with firejail
 draft: false
 categories:
