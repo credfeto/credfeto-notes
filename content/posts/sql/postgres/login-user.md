@@ -9,7 +9,7 @@ tags:
   - Postgresql
   - Security
 ---
-```
+
 ## Create Login to SQL Server
 
 ```sql
