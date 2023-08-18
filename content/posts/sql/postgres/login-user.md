@@ -34,3 +34,9 @@ GRANT pg_write_all_data TO my_user;
 ```sql
 GRANT USAGE ON SCHEMA public TO my_user;
 ```
+
+## Change DB owner
+
+```sql
+ALTER DATABASE name OWNER TO new_owner;
+```
