@@ -25,4 +25,4 @@ yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hoo
 
 ## Excluding a program from firejail config
 
-edit ``/etc/firejail/firecfg.cfg`` and comment out the name of the program
+edit ``/etc/firejail/firecfg.config`` and comment out the name of the program
