@@ -259,9 +259,9 @@ default. This doesn&amp;rsquo;t work well with small disks with services that ar
 default configuration so that it is better suited.&lt;/p>
 &lt;p>note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p>
 &lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
-&lt;p>/etc/logrotate.conf:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># see &amp;#34;man logrotate&amp;#34; for details
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># rotate log files daily
+&lt;p>note using a file 01-defaults in &lt;code>logrotate.d&lt;/code> means that don&amp;rsquo;t need to worry about updates rewriting the &lt;code>logrotate.conf&lt;/code> file&lt;/p>
+&lt;p>/etc/logrotate.d/01-defaults:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># rotate log files daily
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>daily
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># keep 2 weeks worth of backlogs
@@ -280,29 +280,6 @@ default configuration so that it is better suited.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># maximum compression (uses more memory)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compressoptions -T0 --long --ultra -22
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uncompresscmd /usr/bin/unzstd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Logs are moved into directory for rotation
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># olddir /var/log/archive
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Ignore pacman saved files
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tabooext + .pacorig .pacnew .pacsave
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Arch packages drop log rotation information into this directory
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include /etc/logrotate.d
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/log/wtmp {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> monthly
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> create 0664 root utmp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> minsize 1M
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rotate 1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/log/btmp {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> missingok
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> monthly
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> create 0600 root utmp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rotate 1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>WebStorm fix jest</title><link>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</link><pubDate>Wed, 08 Feb 2023 10:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</guid><description>&lt;h1 id="webstorm---fixing-jest" >Webstorm - fixing jest
 &lt;span>
 &lt;a href="#webstorm---fixing-jest">
