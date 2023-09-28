@@ -18,9 +18,10 @@ note that per service configurations in /etc/logrotate.d/ may also need adjustin
 
 See [ArchWiki](https://wiki.archlinux.org/title/Logrotate)
 
-/etc/logrotate.conf:
+note using a file 01-defaults in ``logrotate.d`` means that don't need to worry about updates rewriting the ``logrotate.conf`` file
+
+/etc/logrotate.d/01-defaults:
 ```text
-# see "man logrotate" for details
 # rotate log files daily 
 daily
 
@@ -40,27 +41,4 @@ compressext .zst
 # maximum compression (uses more memory)
 compressoptions -T0 --long --ultra -22
 uncompresscmd /usr/bin/unzstd
-
-# Logs are moved into directory for rotation
-# olddir /var/log/archive
-
-# Ignore pacman saved files
-tabooext + .pacorig .pacnew .pacsave
-
-# Arch packages drop log rotation information into this directory
-include /etc/logrotate.d
-
-/var/log/wtmp {
-    monthly
-    create 0664 root utmp
-    minsize 1M
-    rotate 1
-}
-
-/var/log/btmp {
-    missingok
-    monthly
-    create 0600 root utmp
-    rotate 1
-}
 ```
