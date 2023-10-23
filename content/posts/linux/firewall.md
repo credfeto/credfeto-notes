@@ -29,10 +29,11 @@ Enable
 
 ```bash
 sudo ufw enable
+sudo systemctl enable --now ufw
 ```
 
 
 Status
-```
+```bash
 sudo ufw status verbose
 ```
