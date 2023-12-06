@@ -16,7 +16,7 @@ tags:
 
 ## Install
 ```bash
-pacman -Sy nvm
+yay -Sy nvm
 ```
 
 ## Install Latest node
