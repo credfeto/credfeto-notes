@@ -25,7 +25,21 @@
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nvm install 18.9.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Extending Partition</title><link>https://notes.markridgwell.com/posts/linux/extend-partition/</link><pubDate>Wed, 25 Oct 2023 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/extend-partition/</guid><description>&lt;h1 id="extending-partition" >Extending partition
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Using Socket security CLI</title><link>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</link><pubDate>Wed, 06 Dec 2023 15:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</guid><description>&lt;h1 id="socket-security-cli" >Socket Security Cli
+&lt;span>
+&lt;a href="#socket-security-cli">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Wrapper for NPM and NPX to check security of the packages on install&lt;/p>
+&lt;h2 id="install" >Install
+&lt;span>
+&lt;a href="#install">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install -g @socketsecurity/cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="%5Bhttps://docs.socket.dev/docs/socket-cli%5D(https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this)https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this">Socket.dev&lt;/a>&lt;/p></description></item><item><title>Extending Partition</title><link>https://notes.markridgwell.com/posts/linux/extend-partition/</link><pubDate>Wed, 25 Oct 2023 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/extend-partition/</guid><description>&lt;h1 id="extending-partition" >Extending partition
 &lt;span>
 &lt;a href="#extending-partition">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
