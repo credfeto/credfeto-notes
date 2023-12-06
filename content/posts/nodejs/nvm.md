@@ -30,3 +30,9 @@ nvm install node
 ```bash
 nvm install 18.9.0
 ```
+
+## Switch to a specific version of node
+
+```bash
+nvm use 18.9.0
+```
