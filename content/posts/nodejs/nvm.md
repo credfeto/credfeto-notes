@@ -9,7 +9,7 @@ categories:
   - Typescript
 tags:
   - nodejs
-  - nvmm
+  - nvm
   - Typescript
 ---
 # Using Node Version Manager
