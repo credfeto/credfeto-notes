@@ -1,26 +1,7 @@
 version: 2
 updates:
 
-
 - package-ecosystem: gitsubmodule
-  directory: "/"
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 99
-  reviewers:
-  - credfeto
-  assignees:
-  - credfeto
-  commit-message:
-    prefix: "[Dependencies]"
-  rebase-strategy: "auto"
-  labels:
-  - "submodule"
-  - "dependencies"
-  - "Changelog Not Required"
-
-
-- package-ecosystem: github-actions
   directory: "/"
   schedule:
     interval: daily
@@ -31,13 +12,11 @@ updates:
   - credfeto
   assignees:
   - credfeto
-  allow:
-  - dependency-type: all
   commit-message:
     prefix: "[Dependencies]"
-  rebase-strategy: "auto"
   labels:
-  - "github-actions"
+  - "submodule"
   - "dependencies"
   - "Changelog Not Required"
-
+  allow:
+  - dependency-type: all
