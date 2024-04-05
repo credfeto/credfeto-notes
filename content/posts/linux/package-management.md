@@ -7,6 +7,8 @@ categories:
   - Linux
 tags:
   - Package Management
+  - pacman
+  - flatpak
 ---
 # Package Management
 
@@ -71,11 +73,9 @@ Enable reflector to be run at startup  (also can enable reflector.timer to run w
 sudo systemctl enable --now reflector.service
 ```
 
-```
+## Flatpak
 
-### Flatpak
-
-Only allow verified apps to run
+### Only allow verified apps to run
 
 ```bash
 flatpak remote-add --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
@@ -83,3 +83,10 @@ flatpak remote-delete flathub
 ```
 
 note when removing this will prompt to remove all installed apps 
+
+### Allow whitelisted packages
+
+```
+git clone git@github.com:credfeto/credfeto-flatpak-filter.git
+sudo flatpak remote-add --if-not-exists --filter=/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrep
+```
