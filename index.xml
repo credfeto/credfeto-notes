@@ -447,7 +447,13 @@ qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit &lt;code>/etc/xdg/reflector/reflector.conf&lt;/code> to configure reflector update&lt;/p>
 &lt;p>Enable reflector to be run at startup (also can enable reflector.timer to run weekly)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl enable --now reflector.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>&lt;/code>&lt;/pre></description></item><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" >Logrotate
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>
+### Flatpak
+Only allow verified apps to run
+```bash
+flatpak remote-add --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-delete flathub
+&lt;/code>&lt;/pre>&lt;p>note when removing this will prompt to remove all installed apps&lt;/p></description></item><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" >Logrotate
 &lt;span>
 &lt;a href="#logrotate">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
