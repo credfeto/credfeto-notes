@@ -73,4 +73,13 @@ sudo systemctl enable --now reflector.service
 
 ```
 
+### Flatpak
 
+Only allow verified apps to run
+
+```bash
+flatpak remote-add --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-delete flathub
+```
+
+note when removing this will prompt to remove all installed apps 
