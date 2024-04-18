@@ -1,5 +1,5 @@
 ---
-title: "Package Management - Arch"
+title: "Package Management - Flatpak"
 date: 2023-03-01T08:47:11+01:00
 description: Linux notes
 draft: false
@@ -7,7 +7,8 @@ categories:
   - Linux
 tags:
   - Package Management
-  - pacman
+  - flatpak
+  - flathub
 ---
 # Package Management - Flatpak
 
