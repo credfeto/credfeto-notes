@@ -22,7 +22,7 @@ pacman -Qdtq
 Remove all unused
 
 ```bash
-pacman -Qdtq | pacman -Rs -
+pacman -Qdtq | sudo pacman -Rs -
 ```
 
 Remove multi-lib packages:
@@ -35,7 +35,7 @@ Once done edit ``/etc/pacman.conf`` and comment out the ``[multilib]` section
 
 Re-install all packages (not AUR)
 ```bash
-pacman -Qqn | pacman -S -
+pacman -Qqn | sudo pacman -S -
 ```
 
 Re-install all AUR packages
