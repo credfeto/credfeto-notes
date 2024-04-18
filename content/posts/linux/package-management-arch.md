@@ -1,5 +1,5 @@
 ---
-title: "Package Management"
+title: "Package Management - Arch"
 date: 2023-03-01T08:47:11+01:00
 description: Linux notes
 draft: false
@@ -8,21 +8,10 @@ categories:
 tags:
   - Package Management
   - pacman
-  - flatpak
 ---
-# Package Management
+# Package Management - Arch
 
-## Debian based
-
-### Removing unused packages
-
-``` bash
-apt autoremove
-```
-
-## Arch based
-
-### Removing unused packages
+## Removing unused packages
 
 List what is unused
 
@@ -71,22 +60,4 @@ Edit ``/etc/xdg/reflector/reflector.conf`` to configure reflector update
 Enable reflector to be run at startup  (also can enable reflector.timer to run weekly)
 ```bash
 sudo systemctl enable --now reflector.service
-```
-
-## Flatpak
-
-### Only allow verified apps to run
-
-```bash
-flatpak remote-add --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
-flatpak remote-delete flathub
-```
-
-note when removing this will prompt to remove all installed apps 
-
-### Allow whitelisted packages
-
-```
-git clone git@github.com:credfeto/credfeto-flatpak-filter.git
-sudo flatpak remote-add --if-not-exists --filter=/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrep
 ```
