@@ -25,7 +25,7 @@ note when removing this will prompt to remove all installed apps
 
 ```bash
 git clone git@github.com:credfeto/credfeto-flatpak-filter.git
-sudo flatpak remote-add --if-not-exists --filter=/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrep
+sudo flatpak remote-add --if-not-exists --filter=/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 ## Downgrading flatpack packages
