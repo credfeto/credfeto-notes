@@ -63,7 +63,7 @@
 &lt;/a>
 &lt;/span>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone git@github.com:credfeto/credfeto-flatpak-filter.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672">=&lt;/span>/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrep
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672">=&lt;/span>/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="downgrading-flatpack-packages" >Downgrading flatpack packages
 &lt;span>
 &lt;a href="#downgrading-flatpack-packages">
