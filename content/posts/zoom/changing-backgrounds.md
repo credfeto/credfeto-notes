@@ -27,3 +27,5 @@ ln -s -f ~/Pictures/Backgrounds/dt-link.jpg {guid}
 ```
 
 use ``wallpaper`` script at login/logoff to change the image before zoom runs
+
+See [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-write-a-script-to-change-zoom-background/)
