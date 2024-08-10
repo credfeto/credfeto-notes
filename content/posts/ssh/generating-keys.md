@@ -52,3 +52,52 @@ Teamcity requires keys to be in a specific format
 ```bash
 ssh-keygen -t rsa -m PEM -f id_project
 ```
+
+
+### Server Setup
+
+/etc/ssh/sshd_config.d/999-security.conf
+```ssshd_config
+# Only allow latest SSH protocol
+Protocol 2
+
+# Ensure root login is disabled
+PermitRootLogin no
+
+# Don't trust ~/.ssh/authorized_keys
+HostBasedAuthentication no
+
+# Ignore RHosts and Shosts
+IgnoreRHosts yes
+
+# no blank passwords
+PermitEmptyPasswords no
+
+# Limit auth retries
+MaxAuthTries 3
+
+# For example, a user can set a variable to have a process execute a malicious package
+PermitUserEnvironment no
+
+# use PAM not password files
+UsePAM yes
+
+# No X11 forwarding
+X11Forwarding no
+
+# Don't allow port forwarding
+AllowTcpForwarding no
+```
+
+### User setup
+Enable SSHd agent
+```bash
+
+systetmctl enable --now sshd-agent
+```
+
+Add private key to agent
+```bash
+ssh-add 'private_key.pub'
+```
+
