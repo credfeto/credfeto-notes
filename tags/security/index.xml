@@ -140,4 +140,42 @@ CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EX
 &lt;/span>
 &lt;/h2>&lt;p>Teamcity requires keys to be in a specific format&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -m PEM -f id_project
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="server-setup" >Server Setup
+&lt;span>
+&lt;a href="#server-setup">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>/etc/ssh/sshd_config.d/999-security.conf&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-ssshd_config" data-lang="ssshd_config"># Only allow latest SSH protocol
+Protocol 2
+# Ensure root login is disabled
+PermitRootLogin no
+# Don&amp;#39;t trust ~/.ssh/authorized_keys
+HostBasedAuthentication no
+# Ignore RHosts and Shosts
+IgnoreRHosts yes
+# no blank passwords
+PermitEmptyPasswords no
+# Limit auth retries
+MaxAuthTries 3
+# For example, a user can set a variable to have a process execute a malicious package
+PermitUserEnvironment no
+# use PAM not password files
+UsePAM yes
+# No X11 forwarding
+X11Forwarding no
+# Don&amp;#39;t allow port forwarding
+AllowTcpForwarding no
+&lt;/code>&lt;/pre>&lt;h3 id="user-setup" >User setup
+&lt;span>
+&lt;a href="#user-setup">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>Enable SSHd agent&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systetmctl enable --now sshd-agent
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add private key to agent&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-add &lt;span style="color:#e6db74">&amp;#39;private_key.pub&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
