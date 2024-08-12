@@ -93,7 +93,13 @@ AllowTcpForwarding no
 Enable SSHd agent
 ```bash
 
-systetmctl enable --now sshd-agent
+systetmctl enable --user --now sshd-agent
+```
+
+note if using firejail andd ssh agent then add this to ``~/.config/firejai``:
+
+```config
+whitelist $XDG_RUNTIME_DIR/ssh-agent.socket
 ```
 
 Add private key to agent
