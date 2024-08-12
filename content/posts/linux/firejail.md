@@ -28,3 +28,10 @@ yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hoo
 edit ``/etc/firejail/firecfg.config`` and comment out the name of the program
 
 note zoom normally needs removing as it has issues
+
+### Firejail
+
+~/.config/firejail/ssh.conf
+```config
+whitelist ${RUNUSER}/ssh-agent.*
+```
