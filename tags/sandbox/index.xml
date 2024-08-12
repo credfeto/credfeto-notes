@@ -26,12 +26,35 @@
 &lt;/span>
 &lt;/h2>&lt;p>edit &lt;code>/etc/firejail/firecfg.config&lt;/code> and comment out the name of the program&lt;/p>
 &lt;p>note zoom normally needs removing as it has issues&lt;/p>
-&lt;h3 id="firejail" >Firejail
+&lt;h2 id="special-cases" >Special cases
 &lt;span>
-&lt;a href="#firejail">
+&lt;a href="#special-cases">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h3>&lt;p>~/.config/firejail/ssh.conf&lt;/p>
+&lt;/h2>&lt;h3 id="ssh" >SSH
+&lt;span>
+&lt;a href="#ssh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>~/.config/firejail/ssh.local&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">whitelist ${RUNUSER}/ssh-agent.*
+&lt;/code>&lt;/pre>&lt;h3 id="spectacle-wayland" >Spectacle (Wayland)
+&lt;span>
+&lt;a href="#spectacle-wayland">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>/etc/pacman.d/hooks/unjail-spectacle.hook&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = firejail
+[Action]
+Description = Removing spectacle from jail
+When = PostTransaction
+Exec = /usr/bin/rm -f /home/markr/.local/share/applications/org.kde.spectacle.desktop
 &lt;/code>&lt;/pre></description></item></channel></rss>
