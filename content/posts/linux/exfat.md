@@ -6,19 +6,20 @@ draft: false
 categories:
   - Linux
 tags:
-  - DD
+  - Exfat
+  - Disks
 ---
 # Exfat
 
 ## Required packages
 
-Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt install exfat-fuse exfatprogs
 ```
 
-## Arch
+### Arch
 
 ```bash
 pacman -S exfatprogs
