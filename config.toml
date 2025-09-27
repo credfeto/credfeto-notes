@@ -3,8 +3,6 @@ baseURL = "https://notes.markridgwell.com/"
 title = "Mark Ridgwell | Notes"
 # theme
 theme = "anubis"
-# post pagination
-paginate = "10"
 # post excerpt
 summaryLength = "10"
 
@@ -73,3 +71,5 @@ unsafe = true
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
 
+[[pagination]]
+pagerSize = 10
