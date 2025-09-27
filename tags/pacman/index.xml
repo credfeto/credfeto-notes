@@ -1,31 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pacman on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/pacman/</link><description>Mark Ridgwell | Notes (Pacman)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Mar 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/pacman/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management - Arch</title><link>https://notes.markridgwell.com/posts/linux/package-management-arch/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-arch/</guid><description>&lt;h1 id="package-management---arch" >Package Management - Arch
-&lt;span>
-&lt;a href="#package-management---arch">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="removing-unused-packages" >Removing unused packages
-&lt;span>
-&lt;a href="#removing-unused-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>List what is unused&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove all unused&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq | sudo pacman -Rs -
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove multi-lib packages:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -R &lt;span style="color:#e6db74">`&lt;/span>LANG&lt;span style="color:#f92672">=&lt;/span>C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74">&amp;#39; &amp;#39;&lt;/span> -f 2&lt;span style="color:#e6db74">`&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done edit &lt;code>/etc/pacman.conf&lt;/code> and comment out the ``[multilib]` section&lt;/p>
-&lt;p>Re-install all packages (not AUR)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qqn | sudo pacman -S -
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Re-install all AUR packages&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy --rebuildtree --rebuildall &lt;span style="color:#66d9ef">$(&lt;/span>pacman -Qqme&lt;span style="color:#66d9ef">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use Reflector to find the fastest 20 mirrors in the specifiec country&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo reflector --latest &lt;span style="color:#ae81ff">20&lt;/span> --protocol https --sort rate --save /etc/pacman.d/mirrorlist --country gb&lt;span style="color:#e6db74">``&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install reflector with pacman hook&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -S reflector reflector-pacman-hook-git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit &lt;code>/etc/xdg/reflector/reflector.conf&lt;/code> to configure reflector update&lt;/p>
-&lt;p>Enable reflector to be run at startup (also can enable reflector.timer to run weekly)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl enable --now reflector.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pacman on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/pacman/</link><description>Recent content in Pacman on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 18 Apr 2024 10:08:27 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/pacman/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management - Arch</title><link>https://notes.markridgwell.com/posts/linux/package-management-arch/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-arch/</guid><description>&lt;h1 id="package-management---arch" class=link_owner&gt;
+ Package Management - Arch
+ &lt;a href="#package-management---arch" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="removing-unused-packages" class=link_owner&gt;
+ Removing unused packages
+ &lt;a href="#removing-unused-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;List what is unused&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qdtq
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remove all unused&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qdtq | sudo pacman -Rs -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remove multi-lib packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -R &lt;span style="color:#e6db74"&gt;`&lt;/span&gt;LANG&lt;span style="color:#f92672"&gt;=&lt;/span&gt;C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74"&gt;&amp;#39; &amp;#39;&lt;/span&gt; -f 2&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once done edit &lt;code&gt;/etc/pacman.conf&lt;/code&gt; and comment out the ``[multilib]` section&lt;/p&gt;
+&lt;p&gt;Re-install all packages (not AUR)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qqn | sudo pacman -S -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Re-install all AUR packages&lt;/p&gt;</description></item></channel></rss>

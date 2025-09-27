@@ -1,37 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Geth on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/geth/</link><description>Mark Ridgwell | Notes (Geth)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/geth/index.xml" rel="self" type="application/rss+xml"/><item><title>Geth</title><link>https://notes.markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
-&lt;span>
-&lt;a href="#geth">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="node" >Node
-&lt;span>
-&lt;a href="#node">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>list peers: &lt;code>admin.peers&lt;/code>&lt;/li>
-&lt;li>Node Info: &lt;code>admin.nodeInfo&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="sealers" >Sealers
-&lt;span>
-&lt;a href="#sealers">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>list sealers &lt;code>clique.getSigners()&lt;/code>&lt;/li>
-&lt;li>list propositions: &lt;code>clique.proposals&lt;/code>&lt;/li>
-&lt;li>discard a proposition: &lt;code>clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code>&lt;/li>
-&lt;li>add a new sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code>&lt;/li>
-&lt;li>remove a sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="generate-toml-file" >Generate toml file
-&lt;span>
-&lt;a href="#generate-toml-file">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
-&lt;/code>&lt;/pre></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Geth on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/categories/geth/</link><description>Recent content in Geth on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 01 Feb 2023 23:31:57 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/categories/geth/index.xml" rel="self" type="application/rss+xml"/><item><title>Geth</title><link>https://notes.markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" class=link_owner&gt;
+ Geth
+ &lt;a href="#geth" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="node" class=link_owner&gt;
+ Node
+ &lt;a href="#node" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;list peers: &lt;code&gt;admin.peers&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Node Info: &lt;code&gt;admin.nodeInfo&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sealers" class=link_owner&gt;
+ Sealers
+ &lt;a href="#sealers" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;list sealers &lt;code&gt;clique.getSigners()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;list propositions: &lt;code&gt;clique.proposals&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;discard a proposition: &lt;code&gt;clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;add a new sealer: &lt;code&gt;clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;remove a sealer: &lt;code&gt;clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="generate-toml-file" class=link_owner&gt;
+ Generate toml file
+ &lt;a href="#generate-toml-file" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

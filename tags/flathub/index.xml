@@ -1,44 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flathub on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/flathub/</link><description>Mark Ridgwell | Notes (Flathub)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Mar 2023 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/flathub/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management - Flatpak</title><link>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</guid><description>&lt;h1 id="package-management---flatpak" >Package Management - Flatpak
-&lt;span>
-&lt;a href="#package-management---flatpak">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="only-allow-flathub-verified-apps-to-run" >Only allow flathub verified apps to run
-&lt;span>
-&lt;a href="#only-allow-flathub-verified-apps-to-run">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>flatpak remote-add --if-not-exists --subset&lt;span style="color:#f92672">=&lt;/span>verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flatpak remote-delete flathub
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>note when removing this will prompt to remove all installed apps&lt;/p>
-&lt;h2 id="allow-whitelisted-packages" >Allow whitelisted packages
-&lt;span>
-&lt;a href="#allow-whitelisted-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone git@github.com:credfeto/credfeto-flatpak-filter.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672">=&lt;/span>/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="downgrading-flatpack-packages" >Downgrading flatpack packages
-&lt;span>
-&lt;a href="#downgrading-flatpack-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>&lt;a href="https://itsfoss.com/downgrade-flatpak-packages/">Based on&lt;/a>&lt;/p>
-&lt;p>Get versions of installed package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>flatpak remote-info --log flathub-verified us.zoom.Zoom
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak update --commit&lt;span style="color:#f92672">=&lt;/span>&amp;lt;commit_hash&amp;gt; &amp;lt;Application ID&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="preventing-package-from-being-updated" >Preventing package from being updated
-&lt;span>
-&lt;a href="#preventing-package-from-being-updated">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Mask package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak mask us.zoom.Zoom
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Un-Mask package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak mask us.zoom.Zoom --remove
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flathub on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/flathub/</link><description>Recent content in Flathub on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 03 May 2024 18:30:37 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/flathub/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management - Flatpak</title><link>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</guid><description>&lt;h1 id="package-management---flatpak" class=link_owner&gt;
+ Package Management - Flatpak
+ &lt;a href="#package-management---flatpak" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="only-allow-flathub-verified-apps-to-run" class=link_owner&gt;
+ Only allow flathub verified apps to run
+ &lt;a href="#only-allow-flathub-verified-apps-to-run" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;flatpak remote-add --if-not-exists --subset&lt;span style="color:#f92672"&gt;=&lt;/span&gt;verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;flatpak remote-delete flathub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;note when removing this will prompt to remove all installed apps&lt;/p&gt;
+&lt;h2 id="allow-whitelisted-packages" class=link_owner&gt;
+ Allow whitelisted packages
+ &lt;a href="#allow-whitelisted-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@github.com:credfeto/credfeto-flatpak-filter.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="downgrading-flatpack-packages" class=link_owner&gt;
+ Downgrading flatpack packages
+ &lt;a href="#downgrading-flatpack-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://itsfoss.com/downgrade-flatpak-packages/"&gt;Based on&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Get versions of installed package&lt;/p&gt;</description></item></channel></rss>

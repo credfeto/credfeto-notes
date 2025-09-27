@@ -1,60 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Firejail on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/firejail/</link><description>Mark Ridgwell | Notes (Firejail)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 16 Aug 2023 18:14:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/firejail/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring firejail</title><link>https://notes.markridgwell.com/posts/linux/firejail/</link><pubDate>Wed, 16 Aug 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firejail/</guid><description>&lt;h1 id="configuring-firejail" >Configuring firejail
-&lt;span>
-&lt;a href="#configuring-firejail">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="installing" >Installing
-&lt;span>
-&lt;a href="#installing">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="removing" >Removing
-&lt;span>
-&lt;a href="#removing">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="excluding-a-program-from-firejail-config" >Excluding a program from firejail config
-&lt;span>
-&lt;a href="#excluding-a-program-from-firejail-config">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>edit &lt;code>/etc/firejail/firecfg.config&lt;/code> and comment out the name of the program&lt;/p>
-&lt;p>note zoom normally needs removing as it has issues&lt;/p>
-&lt;h2 id="special-cases" >Special cases
-&lt;span>
-&lt;a href="#special-cases">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h3 id="ssh" >SSH
-&lt;span>
-&lt;a href="#ssh">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>~/.config/firejail/ssh.local&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">whitelist ${RUNUSER}/ssh-agent.*
-&lt;/code>&lt;/pre>&lt;h3 id="spectacle-wayland" >Spectacle (Wayland)
-&lt;span>
-&lt;a href="#spectacle-wayland">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>/etc/pacman.d/hooks/unjail-spectacle.hook&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">[Trigger]
-Operation = Upgrade
-Operation = Install
-Operation = Remove
-Type = Package
-Target = firejail
-[Action]
-Description = Removing spectacle from jail
-When = PostTransaction
-Exec = /usr/bin/rm -f /home/markr/.local/share/applications/org.kde.spectacle.desktop
-&lt;/code>&lt;/pre></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Firejail on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/firejail/</link><description>Recent content in Firejail on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 12 Aug 2024 14:33:54 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/firejail/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring firejail</title><link>https://notes.markridgwell.com/posts/linux/firejail/</link><pubDate>Wed, 16 Aug 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firejail/</guid><description>&lt;h1 id="configuring-firejail" class=link_owner&gt;
+ Configuring firejail
+ &lt;a href="#configuring-firejail" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="installing" class=link_owner&gt;
+ Installing
+ &lt;a href="#installing" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -Sy firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="removing" class=link_owner&gt;
+ Removing
+ &lt;a href="#removing" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="excluding-a-program-from-firejail-config" class=link_owner&gt;
+ Excluding a program from firejail config
+ &lt;a href="#excluding-a-program-from-firejail-config" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;edit &lt;code&gt;/etc/firejail/firecfg.config&lt;/code&gt; and comment out the name of the program&lt;/p&gt;
+&lt;p&gt;note zoom normally needs removing as it has issues&lt;/p&gt;
+&lt;h2 id="special-cases" class=link_owner&gt;
+ Special cases
+ &lt;a href="#special-cases" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="ssh" class=link_owner&gt;
+ SSH
+ &lt;a href="#ssh" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;~/.config/firejail/ssh.local&lt;/p&gt;</description></item></channel></rss>

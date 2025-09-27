@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Systemd on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/systemd/</link><description>Recent content in Systemd on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 05 Aug 2025 10:02:49 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/systemd/index.xml" rel="self" type="application/rss+xml"/><item><title>Overriding a systemd service parameters</title><link>https://notes.markridgwell.com/posts/linux/systemd-override/</link><pubDate>Tue, 05 Aug 2025 07:56:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/systemd-override/</guid><description>&lt;h1 id="overriding-a-systemd-service-parameters" class=link_owner&gt;
+ Overriding a systemd service parameters
+ &lt;a href="#overriding-a-systemd-service-parameters" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;To override systemd configuration, the primary method is using drop-in unit files, which allow you to modify specific settings without altering the original upstream unit file. This approach preserves the ability to receive updates to the original service configuration.&lt;/p&gt;
+&lt;h2 id="overriding-a-single-services-configuration" class=link_owner&gt;
+ Overriding a single service&amp;rsquo;s configuration
+ &lt;a href="#overriding-a-single-services-configuration" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;To extend a service&amp;rsquo;s configuration, create a directory named service_name.service.d under &lt;code&gt;/etc/systemd/system/&lt;/code&gt; (e.g., &lt;code&gt;/etc/systemd/system/sshd.service.d/&lt;/code&gt;).
+Within this directory, create a configuration file, typically named override.conf, or use a descriptive name like &lt;code&gt;10_RestartSec_50.conf&lt;/code&gt; to manage multiple overrides.
+The file should contain the desired settings in the appropriate section, such as &lt;code&gt;[Service]&lt;/code&gt;, and follow the same syntax as a standard unit file.
+For example, to change the restart delay for the sshd service, add the following to the file:&lt;/p&gt;</description></item></channel></rss>

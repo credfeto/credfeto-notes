@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows 11 on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/windows-11/</link><description>Recent content in Windows 11 on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 19 Jul 2025 20:32:49 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/windows-11/index.xml" rel="self" type="application/rss+xml"/><item><title>SSH - Generating Keys</title><link>https://notes.markridgwell.com/posts/windows/windows-11-local-account/</link><pubDate>Sat, 19 Jul 2025 19:32:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/windows/windows-11-local-account/</guid><description>&lt;h1 id="windows-11-setup-with-local-account" class=link_owner&gt;
+ Windows 11 setup with local account
+ &lt;a href="#windows-11-setup-with-local-account" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;When it gets to account setup hit Shift + F10&lt;/li&gt;
+&lt;li&gt;Then in the command prompt type:
+&lt;pre tabindex="0"&gt;&lt;code class="language-command" data-lang="command"&gt;start ms-cxh:localonly
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

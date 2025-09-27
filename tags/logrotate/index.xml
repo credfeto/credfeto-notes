@@ -1,33 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logrotate on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/logrotate/</link><description>Mark Ridgwell | Notes (Logrotate)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 12 Feb 2023 14:30:00 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/logrotate/index.xml" rel="self" type="application/rss+xml"/><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" >Logrotate
-&lt;span>
-&lt;a href="#logrotate">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>&lt;code>logotate.conf&lt;/code> by default is set up to rotate logs once a week and keep for 4 weeks. Compression isn&amp;rsquo;t enabled by
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logrotate on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/logrotate/</link><description>Recent content in Logrotate on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 28 Sep 2023 16:21:50 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/logrotate/index.xml" rel="self" type="application/rss+xml"/><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" class=link_owner&gt;
+ Logrotate
+ &lt;a href="#logrotate" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;logotate.conf&lt;/code&gt; by default is set up to rotate logs once a week and keep for 4 weeks. Compression isn&amp;rsquo;t enabled by
 default. This doesn&amp;rsquo;t work well with small disks with services that are verbose with what is logged. This sets the
-default configuration so that it is better suited.&lt;/p>
-&lt;p>note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p>
-&lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
-&lt;p>note using a file 01-defaults in &lt;code>logrotate.d&lt;/code> means that don&amp;rsquo;t need to worry about updates rewriting the &lt;code>logrotate.conf&lt;/code> file&lt;/p>
-&lt;p>/etc/logrotate.d/01-defaults:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># rotate log files daily
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>daily
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># keep 2 weeks worth of backlogs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rotate 14
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># restrict maximum size of log files
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>size 10M
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># create new (empty) log files after rotating old ones
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>create
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># uncomment this if you want your log files compressed
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compress
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compresscmd /usr/bin/zstd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compressext .zst
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># maximum compression (uses more memory)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compressoptions -T0 --long --ultra -22
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uncompresscmd /usr/bin/unzstd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+default configuration so that it is better suited.&lt;/p&gt;
+&lt;p&gt;note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://wiki.archlinux.org/title/Logrotate"&gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;note using a file 01-defaults in &lt;code&gt;logrotate.d&lt;/code&gt; means that don&amp;rsquo;t need to worry about updates rewriting the &lt;code&gt;logrotate.conf&lt;/code&gt; file&lt;/p&gt;</description></item></channel></rss>

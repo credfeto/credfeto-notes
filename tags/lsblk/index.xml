@@ -1,115 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lsblk on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/lsblk/</link><description>Mark Ridgwell | Notes (Lsblk)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 11 Mar 2024 14:06:11 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/lsblk/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardening linux</title><link>https://notes.markridgwell.com/posts/linux/hardening/</link><pubDate>Mon, 11 Mar 2024 14:06:11 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/hardening/</guid><description>&lt;h1 id="hardening-linux" >Hardening Linux
-&lt;span>
-&lt;a href="#hardening-linux">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="kernel-command-line-options" >Kernel Command line options
-&lt;span>
-&lt;a href="#kernel-command-line-options">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>slab_nomerge
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lsblk on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/lsblk/</link><description>Recent content in Lsblk on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 14 Mar 2024 13:12:41 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/lsblk/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardening linux</title><link>https://notes.markridgwell.com/posts/linux/hardening/</link><pubDate>Mon, 11 Mar 2024 14:06:11 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/hardening/</guid><description>&lt;h1 id="hardening-linux" class=link_owner&gt;
+ Hardening Linux
+ &lt;a href="#hardening-linux" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="kernel-command-line-options" class=link_owner&gt;
+ Kernel Command line options
+ &lt;a href="#kernel-command-line-options" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;slab_nomerge
 slub_debug=FZ
 init_on_alloc=1
 init_on_free=1
-pti=on
+pti=on 
 lsm=landlock,lockdown,yama,apparmor,bpf
 apparmor=1
 security=apparmor
 lockdown=confidentiality
 hardened_usercopy=on
 ia32_emulation=0
-&lt;/code>&lt;/pre>&lt;h2 id="etcsysctld" >/etc/sysctl.d/*
-&lt;span>
-&lt;a href="#etcsysctld">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h3 id="restrict-access-to-dmesg" >Restrict access to dmesg
-&lt;span>
-&lt;a href="#restrict-access-to-dmesg">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>dmesg_restrict.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.dmesg_restrict=1
-&lt;/code>&lt;/pre>&lt;h3 id="harden-bpf" >Harden bpf
-&lt;span>
-&lt;a href="#harden-bpf">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>harden_bpf.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.unprivileged_bpf_disabled=1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="etcsysctld" class=link_owner&gt;
+ /etc/sysctl.d/*
+ &lt;a href="#etcsysctld" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="restrict-access-to-dmesg" class=link_owner&gt;
+ Restrict access to dmesg
+ &lt;a href="#restrict-access-to-dmesg" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;dmesg_restrict.conf&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-conf" data-lang="conf"&gt;kernel.dmesg_restrict=1
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="harden-bpf" class=link_owner&gt;
+ Harden bpf
+ &lt;a href="#harden-bpf" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;harden_bpf.conf&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-conf" data-lang="conf"&gt;kernel.unprivileged_bpf_disabled=1
 net.core.bpf_jit_harden=2
-&lt;/code>&lt;/pre>&lt;h3 id="restrict-kexec" >Restrict Kexec
-&lt;span>
-&lt;a href="#restrict-kexec">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>notes:&lt;/p>
-&lt;ul>
-&lt;li>causes zoom to crash on start if enabled&lt;/li>
-&lt;/ul>
-&lt;p>kexec.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.kexec_load_disabled=1
-&lt;/code>&lt;/pre>&lt;h3 id="restrict-kptr" >Restrict Kptr
-&lt;span>
-&lt;a href="#restrict-kptr">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>kptr_restrict.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.kptr_restrict=2
-&lt;/code>&lt;/pre>&lt;h3 id="ptrace-scope" >PTrace scope
-&lt;span>
-&lt;a href="#ptrace-scope">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>ptrace_scope.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.yama.ptrace_scope=2
-&lt;/code>&lt;/pre>&lt;h3 id="tcp" >TCP
-&lt;span>
-&lt;a href="#tcp">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>tcp_hardening.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">net.ipv4.tcp_syncookies=1
-net.ipv4.tcp_rfc1337=1
-net.ipv4.conf.default.rp_filter=1
-net.ipv4.conf.all.rp_filter=1
-net.ipv4.conf.all.accept_redirects=0
-net.ipv4.conf.default.accept_redirects=0
-net.ipv4.conf.all.secure_redirects=0
-net.ipv4.conf.default.secure_redirects=0
-net.ipv6.conf.all.accept_redirects=0
-net.ipv6.conf.default.accept_redirects=0
-net.ipv4.conf.all.send_redirects=0
-net.ipv4.conf.default.send_redirects=0
-net.ipv4.icmp_echo_ignore_all=1
-&lt;/code>&lt;/pre>&lt;h3 id="unprivileged-users-namespace-clone" >Unprivileged users namespace clone
-&lt;span>
-&lt;a href="#unprivileged-users-namespace-clone">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Notes:&lt;/p>
-&lt;ul>
-&lt;li>does not work with zoom&lt;/li>
-&lt;li>does not work with docker&lt;/li>
-&lt;/ul>
-&lt;p>unprivileged_users_clone.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.unprivileged_userns_clone=1
-&lt;/code>&lt;/pre></description></item><item><title>lsblk</title><link>https://notes.markridgwell.com/posts/linux/lsblk/</link><pubDate>Mon, 11 Sep 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/lsblk/</guid><description>&lt;h1 id="list-block-devices-with-mountpoints-and-labels" >List block devices with mountpoints and labels.
-&lt;span>
-&lt;a href="#list-block-devices-with-mountpoints-and-labels">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo lsblk -o name,mountpoint,label,size,uuid
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="restrict-kexec" class=link_owner&gt;
+ Restrict Kexec
+ &lt;a href="#restrict-kexec" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;causes zoom to crash on start if enabled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;kexec.conf&lt;/p&gt;</description></item><item><title>lsblk</title><link>https://notes.markridgwell.com/posts/linux/lsblk/</link><pubDate>Mon, 11 Sep 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/lsblk/</guid><description>&lt;h1 id="list-block-devices-with-mountpoints-and-labels" class=link_owner&gt;
+ List block devices with mountpoints and labels.
+ &lt;a href="#list-block-devices-with-mountpoints-and-labels" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo lsblk -o name,mountpoint,label,size,uuid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

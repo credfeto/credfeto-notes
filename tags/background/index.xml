@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Background on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/background/</link><description>Recent content in Background on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 27 Jul 2024 13:50:37 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/background/index.xml" rel="self" type="application/rss+xml"/><item><title>Zoom: Changing virtual backgrounds</title><link>https://notes.markridgwell.com/posts/zoom/changing-backgrounds/</link><pubDate>Fri, 25 Oct 2024 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/zoom/changing-backgrounds/</guid><description>&lt;h1 id="zoom-changing-backgrounds" class=link_owner&gt;
+ Zoom Changing backgrounds
+ &lt;a href="#zoom-changing-backgrounds" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="with-flatpak-zoom" class=link_owner&gt;
+ with flatpak zoom
+ &lt;a href="#with-flatpak-zoom" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Select a custom background image in zoom UI&lt;/p&gt;
+&lt;p&gt;in folder:
+&lt;code&gt;~/.var/app/us.zoom.Zoom/.zoom/data/VirtualBkgnd_Custom&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;find the file with the name &lt;code&gt;{guid}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;replace the file with a link&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s -f ~/Pictures/Backgrounds/dt-link.jpg &lt;span style="color:#f92672"&gt;{&lt;/span&gt;guid&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;use &lt;code&gt;wallpaper&lt;/code&gt; script at login/logoff to change the image before zoom runs&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://www.freecodecamp.org/news/how-to-write-a-script-to-change-zoom-background/"&gt;FreeCodeCamp&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

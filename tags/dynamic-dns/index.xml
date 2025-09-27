@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dynamic DNS on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/dynamic-dns/</link><description>Mark Ridgwell | Notes (Dynamic DNS)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 May 2022 08:47:11 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/dynamic-dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic DNS with DDClient</title><link>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
-&lt;span>
-&lt;a href="#dynamic-dns-with-ddclient">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit /etc/ddclient.conf as:&lt;/p>
-&lt;pre tabindex="0">&lt;code>daemon=1800
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dynamic DNS on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/tags/dynamic-dns/</link><description>Recent content in Dynamic DNS on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 01 Feb 2023 23:35:55 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/tags/dynamic-dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic DNS with DDClient</title><link>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" class=link_owner&gt;
+ Dynamic DNS with ddclient
+ &lt;a href="#dynamic-dns-with-ddclient" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Edit /etc/ddclient.conf as:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;daemon=1800
 syslog=yes
 protocol=cloudflare
 use=web
@@ -17,17 +19,19 @@ login=&amp;lt;Cloudflare Login&amp;gt;
 password=&amp;lt;APIKEY&amp;gt;
 zone=example.com
 host.example.com
-&lt;/code>&lt;/pre>&lt;p>Verify config&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -query
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -daemon&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> -verbose -noquiet
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable Service&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-hostname" >Set Hostname
-&lt;span>
-&lt;a href="#set-hostname">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo hostnamectl set-hostname whatever.example.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Verify config&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo service ddclient status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ddclient -query
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ddclient -daemon&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; -verbose -noquiet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enable Service&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo service ddclient status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="set-hostname" class=link_owner&gt;
+ Set Hostname
+ &lt;a href="#set-hostname" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo hostnamectl set-hostname whatever.example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

@@ -1,726 +1,838 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/posts/</link><description>Mark Ridgwell | Notes (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 25 Oct 2024 14:15:01 +0000</lastBuildDate><atom:link href="https://notes.markridgwell.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardening linux</title><link>https://notes.markridgwell.com/posts/linux/hardening/</link><pubDate>Mon, 11 Mar 2024 14:06:11 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/hardening/</guid><description>&lt;h1 id="hardening-linux" >Hardening Linux
-&lt;span>
-&lt;a href="#hardening-linux">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="kernel-command-line-options" >Kernel Command line options
-&lt;span>
-&lt;a href="#kernel-command-line-options">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>slab_nomerge
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Mark Ridgwell | Notes</title><link>https://notes.markridgwell.com/posts/</link><description>Recent content in Posts on Mark Ridgwell | Notes</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 05 Aug 2025 10:02:49 +0100</lastBuildDate><atom:link href="https://notes.markridgwell.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Overriding a systemd service parameters</title><link>https://notes.markridgwell.com/posts/linux/systemd-override/</link><pubDate>Tue, 05 Aug 2025 07:56:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/systemd-override/</guid><description>&lt;h1 id="overriding-a-systemd-service-parameters" class=link_owner&gt;
+ Overriding a systemd service parameters
+ &lt;a href="#overriding-a-systemd-service-parameters" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;To override systemd configuration, the primary method is using drop-in unit files, which allow you to modify specific settings without altering the original upstream unit file. This approach preserves the ability to receive updates to the original service configuration.&lt;/p&gt;
+&lt;h2 id="overriding-a-single-services-configuration" class=link_owner&gt;
+ Overriding a single service&amp;rsquo;s configuration
+ &lt;a href="#overriding-a-single-services-configuration" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;To extend a service&amp;rsquo;s configuration, create a directory named service_name.service.d under &lt;code&gt;/etc/systemd/system/&lt;/code&gt; (e.g., &lt;code&gt;/etc/systemd/system/sshd.service.d/&lt;/code&gt;).
+Within this directory, create a configuration file, typically named override.conf, or use a descriptive name like &lt;code&gt;10_RestartSec_50.conf&lt;/code&gt; to manage multiple overrides.
+The file should contain the desired settings in the appropriate section, such as &lt;code&gt;[Service]&lt;/code&gt;, and follow the same syntax as a standard unit file.
+For example, to change the restart delay for the sshd service, add the following to the file:&lt;/p&gt;</description></item><item><title>SSH - Generating Keys</title><link>https://notes.markridgwell.com/posts/windows/windows-11-local-account/</link><pubDate>Sat, 19 Jul 2025 19:32:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/windows/windows-11-local-account/</guid><description>&lt;h1 id="windows-11-setup-with-local-account" class=link_owner&gt;
+ Windows 11 setup with local account
+ &lt;a href="#windows-11-setup-with-local-account" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;When it gets to account setup hit Shift + F10&lt;/li&gt;
+&lt;li&gt;Then in the command prompt type:
+&lt;pre tabindex="0"&gt;&lt;code class="language-command" data-lang="command"&gt;start ms-cxh:localonly
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ExFat disk format</title><link>https://notes.markridgwell.com/posts/linux/exfat/</link><pubDate>Mon, 23 Dec 2024 11:23:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/exfat/</guid><description>&lt;h1 id="exfat" class=link_owner&gt;
+ Exfat
+ &lt;a href="#exfat" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="required-packages" class=link_owner&gt;
+ Required packages
+ &lt;a href="#required-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="ubuntu" class=link_owner&gt;
+ Ubuntu
+ &lt;a href="#ubuntu" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install exfat-fuse exfatprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="arch" class=link_owner&gt;
+ Arch
+ &lt;a href="#arch" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -S exfatprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="formatting" class=link_owner&gt;
+ Formatting
+ &lt;a href="#formatting" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkfs.exfat -L Disk_Label /dev/sda1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Zoom: Changing virtual backgrounds</title><link>https://notes.markridgwell.com/posts/zoom/changing-backgrounds/</link><pubDate>Fri, 25 Oct 2024 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/zoom/changing-backgrounds/</guid><description>&lt;h1 id="zoom-changing-backgrounds" class=link_owner&gt;
+ Zoom Changing backgrounds
+ &lt;a href="#zoom-changing-backgrounds" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="with-flatpak-zoom" class=link_owner&gt;
+ with flatpak zoom
+ &lt;a href="#with-flatpak-zoom" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Select a custom background image in zoom UI&lt;/p&gt;
+&lt;p&gt;in folder:
+&lt;code&gt;~/.var/app/us.zoom.Zoom/.zoom/data/VirtualBkgnd_Custom&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;find the file with the name &lt;code&gt;{guid}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;replace the file with a link&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s -f ~/Pictures/Backgrounds/dt-link.jpg &lt;span style="color:#f92672"&gt;{&lt;/span&gt;guid&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;use &lt;code&gt;wallpaper&lt;/code&gt; script at login/logoff to change the image before zoom runs&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://www.freecodecamp.org/news/how-to-write-a-script-to-change-zoom-background/"&gt;FreeCodeCamp&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hardening linux</title><link>https://notes.markridgwell.com/posts/linux/hardening/</link><pubDate>Mon, 11 Mar 2024 14:06:11 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/hardening/</guid><description>&lt;h1 id="hardening-linux" class=link_owner&gt;
+ Hardening Linux
+ &lt;a href="#hardening-linux" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="kernel-command-line-options" class=link_owner&gt;
+ Kernel Command line options
+ &lt;a href="#kernel-command-line-options" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;slab_nomerge
 slub_debug=FZ
 init_on_alloc=1
 init_on_free=1
-pti=on
+pti=on 
 lsm=landlock,lockdown,yama,apparmor,bpf
 apparmor=1
 security=apparmor
 lockdown=confidentiality
 hardened_usercopy=on
 ia32_emulation=0
-&lt;/code>&lt;/pre>&lt;h2 id="etcsysctld" >/etc/sysctl.d/*
-&lt;span>
-&lt;a href="#etcsysctld">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h3 id="restrict-access-to-dmesg" >Restrict access to dmesg
-&lt;span>
-&lt;a href="#restrict-access-to-dmesg">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>dmesg_restrict.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.dmesg_restrict=1
-&lt;/code>&lt;/pre>&lt;h3 id="harden-bpf" >Harden bpf
-&lt;span>
-&lt;a href="#harden-bpf">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>harden_bpf.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.unprivileged_bpf_disabled=1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="etcsysctld" class=link_owner&gt;
+ /etc/sysctl.d/*
+ &lt;a href="#etcsysctld" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="restrict-access-to-dmesg" class=link_owner&gt;
+ Restrict access to dmesg
+ &lt;a href="#restrict-access-to-dmesg" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;dmesg_restrict.conf&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-conf" data-lang="conf"&gt;kernel.dmesg_restrict=1
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="harden-bpf" class=link_owner&gt;
+ Harden bpf
+ &lt;a href="#harden-bpf" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;harden_bpf.conf&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-conf" data-lang="conf"&gt;kernel.unprivileged_bpf_disabled=1
 net.core.bpf_jit_harden=2
-&lt;/code>&lt;/pre>&lt;h3 id="restrict-kexec" >Restrict Kexec
-&lt;span>
-&lt;a href="#restrict-kexec">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>notes:&lt;/p>
-&lt;ul>
-&lt;li>causes zoom to crash on start if enabled&lt;/li>
-&lt;/ul>
-&lt;p>kexec.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.kexec_load_disabled=1
-&lt;/code>&lt;/pre>&lt;h3 id="restrict-kptr" >Restrict Kptr
-&lt;span>
-&lt;a href="#restrict-kptr">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>kptr_restrict.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.kptr_restrict=2
-&lt;/code>&lt;/pre>&lt;h3 id="ptrace-scope" >PTrace scope
-&lt;span>
-&lt;a href="#ptrace-scope">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>ptrace_scope.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.yama.ptrace_scope=2
-&lt;/code>&lt;/pre>&lt;h3 id="tcp" >TCP
-&lt;span>
-&lt;a href="#tcp">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>tcp_hardening.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">net.ipv4.tcp_syncookies=1
-net.ipv4.tcp_rfc1337=1
-net.ipv4.conf.default.rp_filter=1
-net.ipv4.conf.all.rp_filter=1
-net.ipv4.conf.all.accept_redirects=0
-net.ipv4.conf.default.accept_redirects=0
-net.ipv4.conf.all.secure_redirects=0
-net.ipv4.conf.default.secure_redirects=0
-net.ipv6.conf.all.accept_redirects=0
-net.ipv6.conf.default.accept_redirects=0
-net.ipv4.conf.all.send_redirects=0
-net.ipv4.conf.default.send_redirects=0
-net.ipv4.icmp_echo_ignore_all=1
-&lt;/code>&lt;/pre>&lt;h3 id="unprivileged-users-namespace-clone" >Unprivileged users namespace clone
-&lt;span>
-&lt;a href="#unprivileged-users-namespace-clone">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Notes:&lt;/p>
-&lt;ul>
-&lt;li>does not work with zoom&lt;/li>
-&lt;li>does not work with docker&lt;/li>
-&lt;/ul>
-&lt;p>unprivileged_users_clone.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">kernel.unprivileged_userns_clone=1
-&lt;/code>&lt;/pre></description></item><item><title>Node Version Manager</title><link>https://notes.markridgwell.com/posts/nodejs/nvm/</link><pubDate>Wed, 06 Dec 2023 15:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/nodejs/nvm/</guid><description>&lt;h1 id="using-node-version-manager" >Using Node Version Manager
-&lt;span>
-&lt;a href="#using-node-version-manager">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="install" >Install
-&lt;span>
-&lt;a href="#install">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy nvm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-latest-node" >Install Latest node
-&lt;span>
-&lt;a href="#install-latest-node">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nvm install node
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-a-specific-version-of-node" >Install a specific version of node
-&lt;span>
-&lt;a href="#install-a-specific-version-of-node">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nvm install 18.9.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-to-a-specific-version-of-node" >Switch to a specific version of node
-&lt;span>
-&lt;a href="#switch-to-a-specific-version-of-node">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nvm use 18.9.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Using Socket security CLI</title><link>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</link><pubDate>Wed, 06 Dec 2023 15:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</guid><description>&lt;h1 id="socket-security-cli" >Socket Security Cli
-&lt;span>
-&lt;a href="#socket-security-cli">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>Wrapper for NPM and NPX to check security of the packages on install&lt;/p>
-&lt;h2 id="install" >Install
-&lt;span>
-&lt;a href="#install">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install -g @socketsecurity/cli
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="%5Bhttps://docs.socket.dev/docs/socket-cli%5D(https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this)https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this">Socket.dev&lt;/a>&lt;/p></description></item><item><title>Extending Partition</title><link>https://notes.markridgwell.com/posts/linux/extend-partition/</link><pubDate>Wed, 25 Oct 2023 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/extend-partition/</guid><description>&lt;h1 id="extending-partition" >Extending partition
-&lt;span>
-&lt;a href="#extending-partition">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>See &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Aws&lt;/a>&lt;/p>
-&lt;h2 id="resize-partition" >Resize partition
-&lt;span>
-&lt;a href="#resize-partition">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo growpart /dev/nvme0n1 &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="resize-filesystem" >Resize filesystem
-&lt;span>
-&lt;a href="#resize-filesystem">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;h3 id="resize-ext4-in-a-partition" >Resize EXT4 in a partition
-&lt;span>
-&lt;a href="#resize-ext4-in-a-partition">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo resize2fs /dev/nvme0n1p1
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="resize-xfs-in-a-partition" >Resize XFS in a partition
-&lt;span>
-&lt;a href="#resize-xfs-in-a-partition">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Where / is the mountpoint&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo xfs_growfs -d /
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="resize-btrfs-in-a-partition" >Resize BTRFS in a partition
-&lt;span>
-&lt;a href="#resize-btrfs-in-a-partition">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Where / is the mountpoint&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo btrfs filesystem resize +10g /
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>lsblk</title><link>https://notes.markridgwell.com/posts/linux/lsblk/</link><pubDate>Mon, 11 Sep 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/lsblk/</guid><description>&lt;h1 id="list-block-devices-with-mountpoints-and-labels" >List block devices with mountpoints and labels.
-&lt;span>
-&lt;a href="#list-block-devices-with-mountpoints-and-labels">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo lsblk -o name,mountpoint,label,size,uuid
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Configuring firejail</title><link>https://notes.markridgwell.com/posts/linux/firejail/</link><pubDate>Wed, 16 Aug 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firejail/</guid><description>&lt;h1 id="configuring-firejail" >Configuring firejail
-&lt;span>
-&lt;a href="#configuring-firejail">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="installing" >Installing
-&lt;span>
-&lt;a href="#installing">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="removing" >Removing
-&lt;span>
-&lt;a href="#removing">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="excluding-a-program-from-firejail-config" >Excluding a program from firejail config
-&lt;span>
-&lt;a href="#excluding-a-program-from-firejail-config">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>edit &lt;code>/etc/firejail/firecfg.config&lt;/code> and comment out the name of the program&lt;/p>
-&lt;p>note zoom normally needs removing as it has issues&lt;/p>
-&lt;h2 id="special-cases" >Special cases
-&lt;span>
-&lt;a href="#special-cases">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h3 id="ssh" >SSH
-&lt;span>
-&lt;a href="#ssh">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>~/.config/firejail/ssh.local&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">whitelist ${RUNUSER}/ssh-agent.*
-&lt;/code>&lt;/pre>&lt;h3 id="spectacle-wayland" >Spectacle (Wayland)
-&lt;span>
-&lt;a href="#spectacle-wayland">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>/etc/pacman.d/hooks/unjail-spectacle.hook&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">[Trigger]
-Operation = Upgrade
-Operation = Install
-Operation = Remove
-Type = Package
-Target = firejail
-[Action]
-Description = Removing spectacle from jail
-When = PostTransaction
-Exec = /usr/bin/rm -f /home/markr/.local/share/applications/org.kde.spectacle.desktop
-&lt;/code>&lt;/pre></description></item><item><title>Scripting</title><link>https://notes.markridgwell.com/posts/linux/scripting/</link><pubDate>Thu, 11 May 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/scripting/</guid><description>&lt;h1 id="installing-dash" >Installing Dash
-&lt;span>
-&lt;a href="#installing-dash">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>Install the dash shell as default shell over bash on arch.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy dash dashbinsh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install script to check bash-isms in scripts that claim to be posix shell compatible.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy checkbashisms
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Configuring locale</title><link>https://notes.markridgwell.com/posts/linux/locale/</link><pubDate>Mon, 24 Apr 2023 21:34:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/locale/</guid><description>&lt;h1 id="configuring-locale" >Configuring locale
-&lt;span>
-&lt;a href="#configuring-locale">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>Based on &lt;a href="https://gist.github.com/ChrisTitusTech/f55e2fd0b39b268fed251d12bd91b5e8">Chris Titus Gist&lt;/a> but changed for GB&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;LC_ALL=en_GB.UTF-8&amp;#34;&lt;/span> | sudo tee -a /etc/environment
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;en_GB.UTF-8 UTF-8&amp;#34;&lt;/span> | sudo tee -a /etc/locale.gen
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;LANG=en_GB.UTF-8&amp;#34;&lt;/span> | sudo tee -a /etc/locale.conf
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo locale-gen en_GB.UTF-8
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Configuring firewall with UFW</title><link>https://notes.markridgwell.com/posts/linux/firewall/</link><pubDate>Tue, 11 Apr 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firewall/</guid><description>&lt;h1 id="configuring-firewall-with-ufw" >Configuring firewall with UFW
-&lt;span>
-&lt;a href="#configuring-firewall-with-ufw">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>See &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04">Also&lt;/a>&lt;/p>
-&lt;p>Set default policy&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw default deny incoming
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw default allow outgoing
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Allow SSH&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw allow ssh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw enable
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable --now ufw
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Status&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw status verbose
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Octopus tentacle install arch</title><link>https://notes.markridgwell.com/posts/linux/octopus/</link><pubDate>Sun, 09 Apr 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/octopus/</guid><description>&lt;h1 id="installing-polling-octopus-tentacle-on-arch" >Installing polling octopus tentacle on arch
-&lt;span>
-&lt;a href="#installing-polling-octopus-tentacle-on-arch">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>&lt;a href="https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux">See&lt;/a>&lt;/p>
-&lt;h2 id="required-packages" >Required packages
-&lt;span>
-&lt;a href="#required-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>acl - for setfacl (should be installed for systemd already)&lt;/li>
-&lt;li>inetutils - for hostname&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Sy acl inetutils
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux-x64" >Linux X64
-&lt;span>
-&lt;a href="#linux-x64">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>As root&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle -O tentacle-linux_x64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /opt/octopus
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tentacle-linux_x65.tar.gz -C /opt/octopus
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Follow the prompts in&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/configure-tentacle.sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/Tentacle service --install --start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux-arm64" >Linux ARM64
-&lt;span>
-&lt;a href="#linux-arm64">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>As root&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://octopus.com/downloads/latest/Linux_arm64TarGz/OctopusTentacle -O tentacle-linux_arm64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /opt/octopus
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tentacle-linux_arm64.tar.gz -C /opt/octopus
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Follow the prompts in&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/configure-tentacle.sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/octopus/tentacle/Tentacle service --install --start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="for-each-service" >For each service
-&lt;span>
-&lt;a href="#for-each-service">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>useradd &amp;lt;serviceuser&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Disk Cloning</title><link>https://notes.markridgwell.com/posts/linux/clone-disk/</link><pubDate>Sat, 01 Apr 2023 15:54:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/clone-disk/</guid><description>&lt;h1 id="cloning-disk" >Cloning disk
-&lt;span>
-&lt;a href="#cloning-disk">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="cloning-physical-disk" >Cloning physical disk
-&lt;span>
-&lt;a href="#cloning-physical-disk">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>copy all on /dev/nvme0n1 to /dev/sda showing progress&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dd &lt;span style="color:#66d9ef">if&lt;/span>&lt;span style="color:#f92672">=&lt;/span>/dev/nvme0n1 of&lt;span style="color:#f92672">=&lt;/span>/dev/sda bs&lt;span style="color:#f92672">=&lt;/span>64k status&lt;span style="color:#f92672">=&lt;/span>progress
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="copying-iso-to-disk" >Copying ISO to disk
-&lt;span>
-&lt;a href="#copying-iso-to-disk">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>dd &lt;span style="color:#66d9ef">if&lt;/span>&lt;span style="color:#f92672">=&lt;/span>example.iso of&lt;span style="color:#f92672">=&lt;/span>/dev/sda bs&lt;span style="color:#f92672">=&lt;/span>64k status&lt;span style="color:#f92672">=&lt;/span>progress
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Forcing usage of wayland over xwayland</title><link>https://notes.markridgwell.com/posts/linux/force-x11-apps-to-wayland/</link><pubDate>Mon, 27 Mar 2023 09:53:00 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/force-x11-apps-to-wayland/</guid><description>&lt;h1 id="fixing-spectable-screenshot-issues-on-wayland" >Fixing spectable screenshot issues on Wayland
-&lt;span>
-&lt;a href="#fixing-spectable-screenshot-issues-on-wayland">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="firefox" >Firefox
-&lt;span>
-&lt;a href="#firefox">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>edit &lt;code>/etc/profiles.d/wayland.md&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#! /bin/bash
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export MOZ_ENABLE_WAYLAND&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="chromebrave" >Chrome/Brave
-&lt;span>
-&lt;a href="#chromebrave">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>Chrome: Go to &lt;code>chrome://flags#ozone-platform-hint&lt;/code>&lt;/li>
-&lt;li>Brave: Go to &lt;code>brave://flags#ozone-platform-hint&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Switch &amp;ldquo;Preferred Ozone platform&amp;rdquo; to &amp;ldquo;Auto&amp;rdquo;&lt;/p>
-&lt;h2 id="discord" >Discord
-&lt;span>
-&lt;a href="#discord">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>Docs say change the launch command to use&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>discord --enable-features&lt;span style="color:#f92672">=&lt;/span>UseOzonePlatform --ozone-platform&lt;span style="color:#f92672">=&lt;/span>wayland
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>however gertting core dump&lt;/p>
-&lt;p>Currently working&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>discord --disable-gpu-sandbox
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Spectacle wayland</title><link>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</link><pubDate>Fri, 24 Mar 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</guid><description>&lt;h1 id="fixing-spectable-screenshot-issues-on-wayland" >Fixing spectable screenshot issues on Wayland
-&lt;span>
-&lt;a href="#fixing-spectable-screenshot-issues-on-wayland">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="cant-take-screenshot-with-spectacle" >Can&amp;rsquo;t take screenshot with Spectacle
-&lt;span>
-&lt;a href="#cant-take-screenshot-with-spectacle">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>Screenshot request failed: &amp;#34;The process is not authorized to take a screenshot&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="restrict-kexec" class=link_owner&gt;
+ Restrict Kexec
+ &lt;a href="#restrict-kexec" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;causes zoom to crash on start if enabled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;kexec.conf&lt;/p&gt;</description></item><item><title>Node Version Manager</title><link>https://notes.markridgwell.com/posts/nodejs/nvm/</link><pubDate>Wed, 06 Dec 2023 15:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/nodejs/nvm/</guid><description>&lt;h1 id="using-node-version-manager" class=link_owner&gt;
+ Using Node Version Manager
+ &lt;a href="#using-node-version-manager" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="install" class=link_owner&gt;
+ Install
+ &lt;a href="#install" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -Sy nvm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="install-latest-node" class=link_owner&gt;
+ Install Latest node
+ &lt;a href="#install-latest-node" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nvm install node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="install-a-specific-version-of-node" class=link_owner&gt;
+ Install a specific version of node
+ &lt;a href="#install-a-specific-version-of-node" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nvm install 18.9.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="switch-to-a-specific-version-of-node" class=link_owner&gt;
+ Switch to a specific version of node
+ &lt;a href="#switch-to-a-specific-version-of-node" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nvm use 18.9.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Using Socket security CLI</title><link>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</link><pubDate>Wed, 06 Dec 2023 15:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/nodejs/socketsecurity/</guid><description>&lt;h1 id="socket-security-cli" class=link_owner&gt;
+ Socket Security Cli
+ &lt;a href="#socket-security-cli" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Wrapper for NPM and NPX to check security of the packages on install&lt;/p&gt;
+&lt;h2 id="install" class=link_owner&gt;
+ Install
+ &lt;a href="#install" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @socketsecurity/cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;See also &lt;a href="%5Bhttps://docs.socket.dev/docs/socket-cli%5D(https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this)https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this"&gt;Socket.dev&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Extending Partition</title><link>https://notes.markridgwell.com/posts/linux/extend-partition/</link><pubDate>Wed, 25 Oct 2023 14:15:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/extend-partition/</guid><description>&lt;h1 id="extending-partition" class=link_owner&gt;
+ Extending partition
+ &lt;a href="#extending-partition" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;See &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html"&gt;Aws&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="resize-partition" class=link_owner&gt;
+ Resize partition
+ &lt;a href="#resize-partition" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo growpart /dev/nvme0n1 &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="resize-filesystem" class=link_owner&gt;
+ Resize filesystem
+ &lt;a href="#resize-filesystem" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="resize-ext4-in-a-partition" class=link_owner&gt;
+ Resize EXT4 in a partition
+ &lt;a href="#resize-ext4-in-a-partition" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo resize2fs /dev/nvme0n1p1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="resize-xfs-in-a-partition" class=link_owner&gt;
+ Resize XFS in a partition
+ &lt;a href="#resize-xfs-in-a-partition" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Where / is the mountpoint&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo xfs_growfs -d /
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="resize-btrfs-in-a-partition" class=link_owner&gt;
+ Resize BTRFS in a partition
+ &lt;a href="#resize-btrfs-in-a-partition" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Where / is the mountpoint&lt;/p&gt;</description></item><item><title>lsblk</title><link>https://notes.markridgwell.com/posts/linux/lsblk/</link><pubDate>Mon, 11 Sep 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/lsblk/</guid><description>&lt;h1 id="list-block-devices-with-mountpoints-and-labels" class=link_owner&gt;
+ List block devices with mountpoints and labels.
+ &lt;a href="#list-block-devices-with-mountpoints-and-labels" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo lsblk -o name,mountpoint,label,size,uuid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Configuring firejail</title><link>https://notes.markridgwell.com/posts/linux/firejail/</link><pubDate>Wed, 16 Aug 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firejail/</guid><description>&lt;h1 id="configuring-firejail" class=link_owner&gt;
+ Configuring firejail
+ &lt;a href="#configuring-firejail" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="installing" class=link_owner&gt;
+ Installing
+ &lt;a href="#installing" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -Sy firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="removing" class=link_owner&gt;
+ Removing
+ &lt;a href="#removing" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hook
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="excluding-a-program-from-firejail-config" class=link_owner&gt;
+ Excluding a program from firejail config
+ &lt;a href="#excluding-a-program-from-firejail-config" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;edit &lt;code&gt;/etc/firejail/firecfg.config&lt;/code&gt; and comment out the name of the program&lt;/p&gt;
+&lt;p&gt;note zoom normally needs removing as it has issues&lt;/p&gt;
+&lt;h2 id="special-cases" class=link_owner&gt;
+ Special cases
+ &lt;a href="#special-cases" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="ssh" class=link_owner&gt;
+ SSH
+ &lt;a href="#ssh" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;~/.config/firejail/ssh.local&lt;/p&gt;</description></item><item><title>Scripting</title><link>https://notes.markridgwell.com/posts/linux/scripting/</link><pubDate>Thu, 11 May 2023 22:06:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/scripting/</guid><description>&lt;h1 id="installing-dash" class=link_owner&gt;
+ Installing Dash
+ &lt;a href="#installing-dash" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Install the dash shell as default shell over bash on arch.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -Sy dash dashbinsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install script to check bash-isms in scripts that claim to be posix shell compatible.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yay -Sy checkbashisms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Configuring locale</title><link>https://notes.markridgwell.com/posts/linux/locale/</link><pubDate>Mon, 24 Apr 2023 21:34:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/locale/</guid><description>&lt;h1 id="configuring-locale" class=link_owner&gt;
+ Configuring locale
+ &lt;a href="#configuring-locale" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Based on &lt;a href="https://gist.github.com/ChrisTitusTech/f55e2fd0b39b268fed251d12bd91b5e8"&gt;Chris Titus Gist&lt;/a&gt; but changed for GB&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;LC_ALL=en_GB.UTF-8&amp;#34;&lt;/span&gt; | sudo tee -a /etc/environment
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;en_GB.UTF-8 UTF-8&amp;#34;&lt;/span&gt; | sudo tee -a /etc/locale.gen
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;LANG=en_GB.UTF-8&amp;#34;&lt;/span&gt; | sudo tee -a /etc/locale.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo locale-gen en_GB.UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Configuring firewall with UFW</title><link>https://notes.markridgwell.com/posts/linux/firewall/</link><pubDate>Tue, 11 Apr 2023 18:14:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/firewall/</guid><description>&lt;h1 id="configuring-firewall-with-ufw" class=link_owner&gt;
+ Configuring firewall with UFW
+ &lt;a href="#configuring-firewall-with-ufw" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;See &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04"&gt;Also&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Set default policy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw default deny incoming
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw default allow outgoing
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Allow SSH&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw allow ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enable&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw enable
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl enable --now ufw
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Status&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw status verbose
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Octopus tentacle install arch</title><link>https://notes.markridgwell.com/posts/linux/octopus/</link><pubDate>Sun, 09 Apr 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/octopus/</guid><description>&lt;h1 id="installing-polling-octopus-tentacle-on-arch" class=link_owner&gt;
+ Installing polling octopus tentacle on arch
+ &lt;a href="#installing-polling-octopus-tentacle-on-arch" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux"&gt;See&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="required-packages" class=link_owner&gt;
+ Required packages
+ &lt;a href="#required-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;acl - for setfacl (should be installed for systemd already)&lt;/li&gt;
+&lt;li&gt;inetutils - for hostname&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Sy acl inetutils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="linux-x64" class=link_owner&gt;
+ Linux X64
+ &lt;a href="#linux-x64" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;As root&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle -O tentacle-linux_x64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir /opt/octopus
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar xvzf tentacle-linux_x65.tar.gz -C /opt/octopus
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Follow the prompts in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/opt/octopus/tentacle/configure-tentacle.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/opt/octopus/tentacle/Tentacle service --install --start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="linux-arm64" class=link_owner&gt;
+ Linux ARM64
+ &lt;a href="#linux-arm64" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;As root&lt;/p&gt;</description></item><item><title>Disk Cloning</title><link>https://notes.markridgwell.com/posts/linux/clone-disk/</link><pubDate>Sat, 01 Apr 2023 15:54:01 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/clone-disk/</guid><description>&lt;h1 id="cloning-disk" class=link_owner&gt;
+ Cloning disk
+ &lt;a href="#cloning-disk" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="cloning-physical-disk" class=link_owner&gt;
+ Cloning physical disk
+ &lt;a href="#cloning-physical-disk" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;copy all on /dev/nvme0n1 to /dev/sda showing progress&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dd &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/dev/nvme0n1 of&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/dev/sda bs&lt;span style="color:#f92672"&gt;=&lt;/span&gt;64k status&lt;span style="color:#f92672"&gt;=&lt;/span&gt;progress
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="copying-iso-to-disk" class=link_owner&gt;
+ Copying ISO to disk
+ &lt;a href="#copying-iso-to-disk" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dd &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;example.iso of&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/dev/sda bs&lt;span style="color:#f92672"&gt;=&lt;/span&gt;64k status&lt;span style="color:#f92672"&gt;=&lt;/span&gt;progress
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Forcing usage of wayland over xwayland</title><link>https://notes.markridgwell.com/posts/linux/force-x11-apps-to-wayland/</link><pubDate>Mon, 27 Mar 2023 09:53:00 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/force-x11-apps-to-wayland/</guid><description>&lt;h1 id="fixing-spectable-screenshot-issues-on-wayland" class=link_owner&gt;
+ Fixing spectable screenshot issues on Wayland
+ &lt;a href="#fixing-spectable-screenshot-issues-on-wayland" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="firefox" class=link_owner&gt;
+ Firefox
+ &lt;a href="#firefox" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;edit &lt;code&gt;/etc/profiles.d/wayland.md&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#! /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export MOZ_ENABLE_WAYLAND&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="chromebrave" class=link_owner&gt;
+ Chrome/Brave
+ &lt;a href="#chromebrave" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome: Go to &lt;code&gt;chrome://flags#ozone-platform-hint&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Brave: Go to &lt;code&gt;brave://flags#ozone-platform-hint&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Switch &amp;ldquo;Preferred Ozone platform&amp;rdquo; to &amp;ldquo;Auto&amp;rdquo;&lt;/p&gt;
+&lt;h2 id="discord" class=link_owner&gt;
+ Discord
+ &lt;a href="#discord" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Docs say change the launch command to use&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;discord --enable-features&lt;span style="color:#f92672"&gt;=&lt;/span&gt;UseOzonePlatform --ozone-platform&lt;span style="color:#f92672"&gt;=&lt;/span&gt;wayland
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;however gertting core dump&lt;/p&gt;
+&lt;p&gt;Currently working&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;discord --disable-gpu-sandbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Spectacle wayland</title><link>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</link><pubDate>Fri, 24 Mar 2023 17:20:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/spectacle-wayland/</guid><description>&lt;h1 id="fixing-spectable-screenshot-issues-on-wayland" class=link_owner&gt;
+ Fixing spectable screenshot issues on Wayland
+ &lt;a href="#fixing-spectable-screenshot-issues-on-wayland" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="cant-take-screenshot-with-spectacle" class=link_owner&gt;
+ Can&amp;rsquo;t take screenshot with Spectacle
+ &lt;a href="#cant-take-screenshot-with-spectacle" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Screenshot request failed: &amp;#34;The process is not authorized to take a screenshot&amp;#34;
 qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
-&lt;/code>&lt;/pre>&lt;p>fix:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>rm ~/.local/share/applications/org.kde.spectacle.desktop
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>then restart spectable&lt;/p></description></item><item><title>Package Management - Arch</title><link>https://notes.markridgwell.com/posts/linux/package-management-arch/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-arch/</guid><description>&lt;h1 id="package-management---arch" >Package Management - Arch
-&lt;span>
-&lt;a href="#package-management---arch">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="removing-unused-packages" >Removing unused packages
-&lt;span>
-&lt;a href="#removing-unused-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>List what is unused&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove all unused&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qdtq | sudo pacman -Rs -
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove multi-lib packages:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -R &lt;span style="color:#e6db74">`&lt;/span>LANG&lt;span style="color:#f92672">=&lt;/span>C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74">&amp;#39; &amp;#39;&lt;/span> -f 2&lt;span style="color:#e6db74">`&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done edit &lt;code>/etc/pacman.conf&lt;/code> and comment out the ``[multilib]` section&lt;/p>
-&lt;p>Re-install all packages (not AUR)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pacman -Qqn | sudo pacman -S -
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Re-install all AUR packages&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -Sy --rebuildtree --rebuildall &lt;span style="color:#66d9ef">$(&lt;/span>pacman -Qqme&lt;span style="color:#66d9ef">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use Reflector to find the fastest 20 mirrors in the specifiec country&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo reflector --latest &lt;span style="color:#ae81ff">20&lt;/span> --protocol https --sort rate --save /etc/pacman.d/mirrorlist --country gb&lt;span style="color:#e6db74">``&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install reflector with pacman hook&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yay -S reflector reflector-pacman-hook-git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit &lt;code>/etc/xdg/reflector/reflector.conf&lt;/code> to configure reflector update&lt;/p>
-&lt;p>Enable reflector to be run at startup (also can enable reflector.timer to run weekly)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl enable --now reflector.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Package Management - Debian/Ubuntu</title><link>https://notes.markridgwell.com/posts/linux/package-management-debian/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-debian/</guid><description>&lt;h1 id="package-management---debianubuntu" >Package Management - Debian/Ubuntu
-&lt;span>
-&lt;a href="#package-management---debianubuntu">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="removing-unused-packages" >Removing unused packages
-&lt;span>
-&lt;a href="#removing-unused-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt autoremove
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Package Management - Flatpak</title><link>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</guid><description>&lt;h1 id="package-management---flatpak" >Package Management - Flatpak
-&lt;span>
-&lt;a href="#package-management---flatpak">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="only-allow-flathub-verified-apps-to-run" >Only allow flathub verified apps to run
-&lt;span>
-&lt;a href="#only-allow-flathub-verified-apps-to-run">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>flatpak remote-add --if-not-exists --subset&lt;span style="color:#f92672">=&lt;/span>verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>flatpak remote-delete flathub
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>note when removing this will prompt to remove all installed apps&lt;/p>
-&lt;h2 id="allow-whitelisted-packages" >Allow whitelisted packages
-&lt;span>
-&lt;a href="#allow-whitelisted-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone git@github.com:credfeto/credfeto-flatpak-filter.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672">=&lt;/span>/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="downgrading-flatpack-packages" >Downgrading flatpack packages
-&lt;span>
-&lt;a href="#downgrading-flatpack-packages">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>&lt;a href="https://itsfoss.com/downgrade-flatpak-packages/">Based on&lt;/a>&lt;/p>
-&lt;p>Get versions of installed package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>flatpak remote-info --log flathub-verified us.zoom.Zoom
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak update --commit&lt;span style="color:#f92672">=&lt;/span>&amp;lt;commit_hash&amp;gt; &amp;lt;Application ID&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="preventing-package-from-being-updated" >Preventing package from being updated
-&lt;span>
-&lt;a href="#preventing-package-from-being-updated">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Mask package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak mask us.zoom.Zoom
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Un-Mask package&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo flatpak mask us.zoom.Zoom --remove
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" >Logrotate
-&lt;span>
-&lt;a href="#logrotate">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>&lt;code>logotate.conf&lt;/code> by default is set up to rotate logs once a week and keep for 4 weeks. Compression isn&amp;rsquo;t enabled by
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;fix:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rm ~/.local/share/applications/org.kde.spectacle.desktop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then restart spectable&lt;/p&gt;</description></item><item><title>Package Management - Arch</title><link>https://notes.markridgwell.com/posts/linux/package-management-arch/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-arch/</guid><description>&lt;h1 id="package-management---arch" class=link_owner&gt;
+ Package Management - Arch
+ &lt;a href="#package-management---arch" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="removing-unused-packages" class=link_owner&gt;
+ Removing unused packages
+ &lt;a href="#removing-unused-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;List what is unused&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qdtq
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remove all unused&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qdtq | sudo pacman -Rs -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remove multi-lib packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -R &lt;span style="color:#e6db74"&gt;`&lt;/span&gt;LANG&lt;span style="color:#f92672"&gt;=&lt;/span&gt;C pacman -Sl multilib | grep installed | cut -d &lt;span style="color:#e6db74"&gt;&amp;#39; &amp;#39;&lt;/span&gt; -f 2&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once done edit &lt;code&gt;/etc/pacman.conf&lt;/code&gt; and comment out the ``[multilib]` section&lt;/p&gt;
+&lt;p&gt;Re-install all packages (not AUR)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Qqn | sudo pacman -S -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Re-install all AUR packages&lt;/p&gt;</description></item><item><title>Package Management - Debian/Ubuntu</title><link>https://notes.markridgwell.com/posts/linux/package-management-debian/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-debian/</guid><description>&lt;h1 id="package-management---debianubuntu" class=link_owner&gt;
+ Package Management - Debian/Ubuntu
+ &lt;a href="#package-management---debianubuntu" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="removing-unused-packages" class=link_owner&gt;
+ Removing unused packages
+ &lt;a href="#removing-unused-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Package Management - Flatpak</title><link>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</link><pubDate>Wed, 01 Mar 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/package-management-flatpak/</guid><description>&lt;h1 id="package-management---flatpak" class=link_owner&gt;
+ Package Management - Flatpak
+ &lt;a href="#package-management---flatpak" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="only-allow-flathub-verified-apps-to-run" class=link_owner&gt;
+ Only allow flathub verified apps to run
+ &lt;a href="#only-allow-flathub-verified-apps-to-run" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;flatpak remote-add --if-not-exists --subset&lt;span style="color:#f92672"&gt;=&lt;/span&gt;verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;flatpak remote-delete flathub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;note when removing this will prompt to remove all installed apps&lt;/p&gt;
+&lt;h2 id="allow-whitelisted-packages" class=link_owner&gt;
+ Allow whitelisted packages
+ &lt;a href="#allow-whitelisted-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@github.com:credfeto/credfeto-flatpak-filter.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo flatpak remote-add --if-not-exists --filter&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/home/markr/work/personal/credfeto-flatpak-filter/flatpak.filter flathub-whitelist https://flathub.org/repo/flathub.flatpakrepo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="downgrading-flatpack-packages" class=link_owner&gt;
+ Downgrading flatpack packages
+ &lt;a href="#downgrading-flatpack-packages" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://itsfoss.com/downgrade-flatpak-packages/"&gt;Based on&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Get versions of installed package&lt;/p&gt;</description></item><item><title>Logrotate</title><link>https://notes.markridgwell.com/posts/linux/logrotate/</link><pubDate>Sun, 12 Feb 2023 14:30:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/linux/logrotate/</guid><description>&lt;h1 id="logrotate" class=link_owner&gt;
+ Logrotate
+ &lt;a href="#logrotate" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;logotate.conf&lt;/code&gt; by default is set up to rotate logs once a week and keep for 4 weeks. Compression isn&amp;rsquo;t enabled by
 default. This doesn&amp;rsquo;t work well with small disks with services that are verbose with what is logged. This sets the
-default configuration so that it is better suited.&lt;/p>
-&lt;p>note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p>
-&lt;p>See &lt;a href="https://wiki.archlinux.org/title/Logrotate">ArchWiki&lt;/a>&lt;/p>
-&lt;p>note using a file 01-defaults in &lt;code>logrotate.d&lt;/code> means that don&amp;rsquo;t need to worry about updates rewriting the &lt;code>logrotate.conf&lt;/code> file&lt;/p>
-&lt;p>/etc/logrotate.d/01-defaults:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># rotate log files daily
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>daily
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># keep 2 weeks worth of backlogs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rotate 14
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># restrict maximum size of log files
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>size 10M
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># create new (empty) log files after rotating old ones
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>create
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># uncomment this if you want your log files compressed
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compress
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compresscmd /usr/bin/zstd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compressext .zst
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># maximum compression (uses more memory)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>compressoptions -T0 --long --ultra -22
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uncompresscmd /usr/bin/unzstd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>WebStorm fix jest</title><link>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</link><pubDate>Wed, 08 Feb 2023 10:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</guid><description>&lt;h1 id="webstorm---fixing-jest" >Webstorm - fixing jest
-&lt;span>
-&lt;a href="#webstorm---fixing-jest">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>When this error appears on opening new project&lt;/p>
-&lt;pre tabindex="0">&lt;code> ● Test suite failed to run
-Jest encountered an unexpected token
-Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
-Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
-By default &amp;#34;node_modules&amp;#34; folder is ignored by transformers.
-Here&amp;#39;s what you can do:
-• If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
-• If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
-• To have some of your &amp;#34;node_modules&amp;#34; files transformed, you can specify a custom &amp;#34;transformIgnorePatterns&amp;#34; in your config.
-• If you need a custom transformation specify a &amp;#34;transform&amp;#34; option in your config.
-• If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the &amp;#34;moduleNameMapper&amp;#34; config option.
-You&amp;#39;ll find more details and examples of these config options in the docs:
-https://jestjs.io/docs/configuration
-&lt;/code>&lt;/pre>&lt;p>Edit Run configuration and set the configuration file for jest to point to the one in the project:&lt;/p>
-&lt;p>&lt;img src="https://user-images.githubusercontent.com/1020430/217805536-e6709b02-8785-4904-9d15-23dbba048f0d.png" alt="image">&lt;/p></description></item><item><title>Docker remove images</title><link>https://notes.markridgwell.com/posts/docker/remove-old-images/</link><pubDate>Tue, 07 Feb 2023 10:31:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/docker/remove-old-images/</guid><description>&lt;h1 id="docker" >Docker
-&lt;span>
-&lt;a href="#docker">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="remove-unused-images-containers-and-configuration" >Remove unused images, containers and configuration
-&lt;span>
-&lt;a href="#remove-unused-images-containers-and-configuration">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>all stopped containers&lt;/li>
-&lt;li>all networks not used by at least one container&lt;/li>
-&lt;li>all dangling images&lt;/li>
-&lt;li>all dangling build cache&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker system prune
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="remove-unused-images" >Remove unused images
-&lt;span>
-&lt;a href="#remove-unused-images">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>all dangling images&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker image prune
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Correcting keyboard layout</title><link>https://notes.markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/keyboard-layout/</guid><description>&lt;h1 id="correct-keyboard-layout" >Correct Keyboard layout
-&lt;span>
-&lt;a href="#correct-keyboard-layout">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>&lt;a href="https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613">See&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>xmodmap -e &lt;span style="color:#e6db74">&amp;#39;keycode 49 = grave&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>MSSQL Granting access</title><link>https://notes.markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0">&lt;code>## Create Login to SQL Server
+default configuration so that it is better suited.&lt;/p&gt;
+&lt;p&gt;note that per service configurations in /etc/logrotate.d/ may also need adjusting.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://wiki.archlinux.org/title/Logrotate"&gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;note using a file 01-defaults in &lt;code&gt;logrotate.d&lt;/code&gt; means that don&amp;rsquo;t need to worry about updates rewriting the &lt;code&gt;logrotate.conf&lt;/code&gt; file&lt;/p&gt;</description></item><item><title>WebStorm fix jest</title><link>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</link><pubDate>Wed, 08 Feb 2023 10:11:53 +0000</pubDate><guid>https://notes.markridgwell.com/posts/typescript/webstorm-jest/</guid><description>&lt;h1 id="webstorm---fixing-jest" class=link_owner&gt;
+ Webstorm - fixing jest
+ &lt;a href="#webstorm---fixing-jest" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;When this error appears on opening new project&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; ● Test suite failed to run
+
+ Jest encountered an unexpected token
+
+ Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+ Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+ By default &amp;#34;node_modules&amp;#34; folder is ignored by transformers.
+
+ Here&amp;#39;s what you can do:
+ • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+ • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+ • To have some of your &amp;#34;node_modules&amp;#34; files transformed, you can specify a custom &amp;#34;transformIgnorePatterns&amp;#34; in your config.
+ • If you need a custom transformation specify a &amp;#34;transform&amp;#34; option in your config.
+ • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the &amp;#34;moduleNameMapper&amp;#34; config option.
+
+ You&amp;#39;ll find more details and examples of these config options in the docs:
+ https://jestjs.io/docs/configuration
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Edit Run configuration and set the configuration file for jest to point to the one in the project:&lt;/p&gt;</description></item><item><title>Docker remove images</title><link>https://notes.markridgwell.com/posts/docker/remove-old-images/</link><pubDate>Tue, 07 Feb 2023 10:31:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/docker/remove-old-images/</guid><description>&lt;h1 id="docker" class=link_owner&gt;
+ Docker
+ &lt;a href="#docker" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="remove-unused-images-containers-and-configuration" class=link_owner&gt;
+ Remove unused images, containers and configuration
+ &lt;a href="#remove-unused-images-containers-and-configuration" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;all stopped containers&lt;/li&gt;
+&lt;li&gt;all networks not used by at least one container&lt;/li&gt;
+&lt;li&gt;all dangling images&lt;/li&gt;
+&lt;li&gt;all dangling build cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker system prune
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="remove-unused-images" class=link_owner&gt;
+ Remove unused images
+ &lt;a href="#remove-unused-images" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;all dangling images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Correcting keyboard layout</title><link>https://notes.markridgwell.com/posts/linux/keyboard-layout/</link><pubDate>Fri, 20 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/keyboard-layout/</guid><description>&lt;h1 id="correct-keyboard-layout" class=link_owner&gt;
+ Correct Keyboard layout
+ &lt;a href="#correct-keyboard-layout" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613"&gt;See&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;xmodmap -e &lt;span style="color:#e6db74"&gt;&amp;#39;keycode 49 = grave&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>MSSQL Granting access</title><link>https://notes.markridgwell.com/posts/sql/mssql/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/login-user/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;## Create Login to SQL Server
+
 ```sql
 CREATE LOGIN reports WITH PASSWORD = &amp;#39;somethingsecure&amp;#39;, CHECK_EXPIRATION = ON
-&lt;/code>&lt;/pre>&lt;h2 id="change-sql-server-password" >Change SQL Server password
-&lt;span>
-&lt;a href="#change-sql-server-password">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">alter&lt;/span> login reports &lt;span style="color:#66d9ef">with&lt;/span> password &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;secure password&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grant-rights-to-a-user-in-db" >Grant rights to a user in db
-&lt;span>
-&lt;a href="#grant-rights-to-a-user-in-db">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>use [&lt;span style="color:#66d9ef">Database&lt;/span>&lt;span style="color:#f92672">-&lt;/span>name]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- add DB user
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">USER&lt;/span> [Reports&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#66d9ef">User&lt;/span>] &lt;span style="color:#66d9ef">FROM&lt;/span> LOGIN [reports]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- map that user to a role in the db
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">EXEC&lt;/span> sp_addrolemember &lt;span style="color:#e6db74">&amp;#39;reports&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Reports-User&amp;#39;&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Postgresql Granting access</title><link>https://notes.markridgwell.com/posts/sql/postgres/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/postgres/login-user/</guid><description>&lt;h2 id="create-login-to-sql-server" >Create Login to SQL Server
-&lt;span>
-&lt;a href="#create-login-to-sql-server">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">ROLE&lt;/span> my_user LOGIN PASSWORD &lt;span style="color:#e6db74">&amp;#39;my_password&amp;#39;&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grant-access-to-database" >Grant access to database
-&lt;span>
-&lt;a href="#grant-access-to-database">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GRANT&lt;/span> &lt;span style="color:#66d9ef">CONNECT&lt;/span> &lt;span style="color:#66d9ef">ON&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> my_db &lt;span style="color:#66d9ef">TO&lt;/span> my_user;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="granting-basic-readwrite" >Granting basic read/write
-&lt;span>
-&lt;a href="#granting-basic-readwrite">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GRANT&lt;/span> pg_read_all_data &lt;span style="color:#66d9ef">TO&lt;/span> my_user;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GRANT&lt;/span> pg_write_all_data &lt;span style="color:#66d9ef">TO&lt;/span> my_user;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="granting-access-to-a-schema-in-a-db" >Granting access to a schema in a db
-&lt;span>
-&lt;a href="#granting-access-to-a-schema-in-a-db">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GRANT&lt;/span> &lt;span style="color:#66d9ef">USAGE&lt;/span> &lt;span style="color:#66d9ef">ON&lt;/span> &lt;span style="color:#66d9ef">SCHEMA&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">TO&lt;/span> my_user;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="change-db-owner" >Change DB owner
-&lt;span>
-&lt;a href="#change-db-owner">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> name &lt;span style="color:#66d9ef">OWNER&lt;/span> &lt;span style="color:#66d9ef">TO&lt;/span> new_owner;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AWS RDS SQL</title><link>https://notes.markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/aws/rds/</guid><description>&lt;h1 id="aws-rds-sql" >AWS RDS SQL
-&lt;span>
-&lt;a href="#aws-rds-sql">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="backup-rds-to-s3" >Backup RDS to S3
-&lt;span>
-&lt;a href="#backup-rds-to-s3">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>&lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/">backup and restore documentation&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_backup_database
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>source_db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>, &lt;span style="color:#f92672">@&lt;/span>s3_arn_to_backup_to&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>overwrite_S3_backup_file&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="restore-from-s3" >Restore from S3
-&lt;span>
-&lt;a href="#restore-from-s3">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_restore_database
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>restore_db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">@&lt;/span>s3_arn_to_restore_from&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="check-rds-status" >Check RDS Status
-&lt;span>
-&lt;a href="#check-rds-status">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exec&lt;/span> msdb.dbo.rds_task_status &lt;span style="color:#f92672">@&lt;/span>db_name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;database_name&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Taking MSSQL DB offline</title><link>https://notes.markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" >Take DB offline
-&lt;span>
-&lt;a href="#take-db-offline">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>USE [master]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> [MyDatabase] &lt;span style="color:#66d9ef">SET&lt;/span> OFFLINE
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">GO&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Dynamic DNS with DDClient</title><link>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" >Dynamic DNS with ddclient
-&lt;span>
-&lt;a href="#dynamic-dns-with-ddclient">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit /etc/ddclient.conf as:&lt;/p>
-&lt;pre tabindex="0">&lt;code>daemon=1800
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="change-sql-server-password" class=link_owner&gt;
+ Change SQL Server password
+ &lt;a href="#change-sql-server-password" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;alter&lt;/span&gt; login reports &lt;span style="color:#66d9ef"&gt;with&lt;/span&gt; password &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;secure password&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="grant-rights-to-a-user-in-db" class=link_owner&gt;
+ Grant rights to a user in db
+ &lt;a href="#grant-rights-to-a-user-in-db" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use [&lt;span style="color:#66d9ef"&gt;Database&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&lt;/span&gt;name]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;-- add DB user
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;CREATE&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;USER&lt;/span&gt; [Reports&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;User&lt;/span&gt;] &lt;span style="color:#66d9ef"&gt;FROM&lt;/span&gt; LOGIN [reports]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;-- map that user to a role in the db
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;EXEC&lt;/span&gt; sp_addrolemember &lt;span style="color:#e6db74"&gt;&amp;#39;reports&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;Reports-User&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Postgresql Granting access</title><link>https://notes.markridgwell.com/posts/sql/postgres/login-user/</link><pubDate>Sun, 15 Jan 2023 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/postgres/login-user/</guid><description>&lt;h2 id="create-login-to-sql-server" class=link_owner&gt;
+ Create Login to SQL Server
+ &lt;a href="#create-login-to-sql-server" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;CREATE&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;ROLE&lt;/span&gt; my_user LOGIN PASSWORD &lt;span style="color:#e6db74"&gt;&amp;#39;my_password&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="grant-access-to-database" class=link_owner&gt;
+ Grant access to database
+ &lt;a href="#grant-access-to-database" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GRANT&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;CONNECT&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;ON&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;DATABASE&lt;/span&gt; my_db &lt;span style="color:#66d9ef"&gt;TO&lt;/span&gt; my_user;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="granting-basic-readwrite" class=link_owner&gt;
+ Granting basic read/write
+ &lt;a href="#granting-basic-readwrite" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GRANT&lt;/span&gt; pg_read_all_data &lt;span style="color:#66d9ef"&gt;TO&lt;/span&gt; my_user;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GRANT&lt;/span&gt; pg_write_all_data &lt;span style="color:#66d9ef"&gt;TO&lt;/span&gt; my_user;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="granting-access-to-a-schema-in-a-db" class=link_owner&gt;
+ Granting access to a schema in a db
+ &lt;a href="#granting-access-to-a-schema-in-a-db" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GRANT&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;USAGE&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;ON&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;SCHEMA&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;public&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;TO&lt;/span&gt; my_user;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="change-db-owner" class=link_owner&gt;
+ Change DB owner
+ &lt;a href="#change-db-owner" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;ALTER&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;DATABASE&lt;/span&gt; name &lt;span style="color:#66d9ef"&gt;OWNER&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;TO&lt;/span&gt; new_owner;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>AWS RDS SQL</title><link>https://notes.markridgwell.com/posts/aws/rds/</link><pubDate>Sun, 01 Jan 2023 12:00:00 +0000</pubDate><guid>https://notes.markridgwell.com/posts/aws/rds/</guid><description>&lt;h1 id="aws-rds-sql" class=link_owner&gt;
+ AWS RDS SQL
+ &lt;a href="#aws-rds-sql" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="backup-rds-to-s3" class=link_owner&gt;
+ Backup RDS to S3
+ &lt;a href="#backup-rds-to-s3" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/"&gt;backup and restore documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;exec&lt;/span&gt; msdb.dbo.rds_backup_database 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;@&lt;/span&gt;source_db_name&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;database_name&amp;#39;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;@&lt;/span&gt;s3_arn_to_backup_to&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;@&lt;/span&gt;overwrite_S3_backup_file&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="restore-from-s3" class=link_owner&gt;
+ Restore from S3
+ &lt;a href="#restore-from-s3" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;exec&lt;/span&gt; msdb.dbo.rds_restore_database 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;@&lt;/span&gt;restore_db_name&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;database_name&amp;#39;&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;@&lt;/span&gt;s3_arn_to_restore_from&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;arn:aws:s3:::bucket_name/file_name_and_extension&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="check-rds-status" class=link_owner&gt;
+ Check RDS Status
+ &lt;a href="#check-rds-status" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;exec&lt;/span&gt; msdb.dbo.rds_task_status &lt;span style="color:#f92672"&gt;@&lt;/span&gt;db_name&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;database_name&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Taking MSSQL DB offline</title><link>https://notes.markridgwell.com/posts/sql/mssql/offline/</link><pubDate>Mon, 05 Dec 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/sql/mssql/offline/</guid><description>&lt;h1 id="take-db-offline" class=link_owner&gt;
+ Take DB offline
+ &lt;a href="#take-db-offline" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;USE [master]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;ALTER&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;DATABASE&lt;/span&gt; [MyDatabase] &lt;span style="color:#66d9ef"&gt;SET&lt;/span&gt; OFFLINE
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;GO&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Dynamic DNS with DDClient</title><link>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</link><pubDate>Wed, 11 May 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/linux/dynamic-dns-with-ddclient/</guid><description>&lt;h1 id="dynamic-dns-with-ddclient" class=link_owner&gt;
+ Dynamic DNS with ddclient
+ &lt;a href="#dynamic-dns-with-ddclient" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Edit /etc/ddclient.conf as:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;daemon=1800
 syslog=yes
 protocol=cloudflare
 use=web
@@ -731,169 +843,145 @@ login=&amp;lt;Cloudflare Login&amp;gt;
 password=&amp;lt;APIKEY&amp;gt;
 zone=example.com
 host.example.com
-&lt;/code>&lt;/pre>&lt;p>Verify config&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -query
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ddclient -daemon&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> -verbose -noquiet
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable Service&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo service ddclient status
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-hostname" >Set Hostname
-&lt;span>
-&lt;a href="#set-hostname">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo hostnamectl set-hostname whatever.example.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Check for ignored files that are committed to git</title><link>https://notes.markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/git/finding-ignored-files/</guid><description>&lt;h1 id="check-for-ignored-files-that-are-checked-into-git" >Check for ignored files that are checked into git
-&lt;span>
-&lt;a href="#check-for-ignored-files-that-are-checked-into-git">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git ls-files | grep -v server&lt;span style="color:#ae81ff">\.&lt;/span>pfx | grep -v &lt;span style="color:#ae81ff">\.&lt;/span>gitignore | git check-ignore --stdin -v --no-index
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>GPG - managing keys</title><link>https://notes.markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" >GPG
-&lt;span>
-&lt;a href="#gpg">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="list-keys" >List Keys
-&lt;span>
-&lt;a href="#list-keys">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --list-keys
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="export-key" >Export Key
-&lt;span>
-&lt;a href="#export-key">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>However, you may not want to bring all that trust data and lots of keys with you. If you&amp;rsquo;d just like to copy your keys over, first export them (as usual, we assume gpg is in your path):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --export-secret-keys -a keyid &amp;gt; my_private_key.asc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --export -a keyid &amp;gt; my_public_key.asc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible).&lt;/p>
-&lt;h2 id="import-key" >Import Key
-&lt;span>
-&lt;a href="#import-key">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --import my_private_key.asc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --import my_public_key.asc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Geth</title><link>https://notes.markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" >Geth
-&lt;span>
-&lt;a href="#geth">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="node" >Node
-&lt;span>
-&lt;a href="#node">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>list peers: &lt;code>admin.peers&lt;/code>&lt;/li>
-&lt;li>Node Info: &lt;code>admin.nodeInfo&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="sealers" >Sealers
-&lt;span>
-&lt;a href="#sealers">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;ul>
-&lt;li>list sealers &lt;code>clique.getSigners()&lt;/code>&lt;/li>
-&lt;li>list propositions: &lt;code>clique.proposals&lt;/code>&lt;/li>
-&lt;li>discard a proposition: &lt;code>clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code>&lt;/li>
-&lt;li>add a new sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code>&lt;/li>
-&lt;li>remove a sealer: &lt;code>clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="generate-toml-file" >Generate toml file
-&lt;span>
-&lt;a href="#generate-toml-file">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
-&lt;/code>&lt;/pre></description></item><item><title>SSH - Generating Keys</title><link>https://notes.markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" >SSH
-&lt;span>
-&lt;a href="#ssh">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="generate-an-elliptic-curve-key" >Generate an elliptic curve key
-&lt;span>
-&lt;a href="#generate-an-elliptic-curve-key">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>See &lt;a href="https://blog.g3rt.nl/upgrade-your-ssh-keys.html">https://blog.g3rt.nl/upgrade-your-ssh-keys.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">100&lt;/span> -t ed25519
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>e.g. using a large number of rounds&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -o -a &lt;span style="color:#ae81ff">1000000000&lt;/span> -t ed25519 -f d:&lt;span style="color:#ae81ff">\t&lt;/span>est_ed
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="proxy-rdp-over-ssh" >Proxy RDP over ssh
-&lt;span>
-&lt;a href="#proxy-rdp-over-ssh">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>Start SSH:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh mark@sshbox -L 9000:machine-to-remote-to:3389
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where:&lt;/p>
-&lt;ul>
-&lt;li>&amp;lsquo;sshbox&amp;rsquo; is the SSH Proxy&lt;/li>
-&lt;li>9000 is the local port&lt;/li>
-&lt;/ul>
-&lt;p>Connect:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mstsc /v:localhost:9000
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="generate-a-key-compatible-with-teamcity" >Generate a key compatible with TeamCity
-&lt;span>
-&lt;a href="#generate-a-key-compatible-with-teamcity">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h2>&lt;p>Teamcity requires keys to be in a specific format&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -m PEM -f id_project
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="server-setup" >Server Setup
-&lt;span>
-&lt;a href="#server-setup">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>/etc/ssh/sshd_config.d/999-security.conf&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-ssshd_config" data-lang="ssshd_config"># Only allow latest SSH protocol
-Protocol 2
-# Ensure root login is disabled
-PermitRootLogin no
-# Don&amp;#39;t trust ~/.ssh/authorized_keys
-HostBasedAuthentication no
-# Ignore RHosts and Shosts
-IgnoreRHosts yes
-# no blank passwords
-PermitEmptyPasswords no
-# Limit auth retries
-MaxAuthTries 3
-# For example, a user can set a variable to have a process execute a malicious package
-PermitUserEnvironment no
-# use PAM not password files
-UsePAM yes
-# No X11 forwarding
-X11Forwarding no
-# Don&amp;#39;t allow port forwarding
-AllowTcpForwarding no
-&lt;/code>&lt;/pre>&lt;h3 id="user-setup" >User setup
-&lt;span>
-&lt;a href="#user-setup">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h3>&lt;p>Enable SSHd agent&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>systetmctl enable --user --now sshd-agent
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>note if using firejail andd ssh-agent then make sure it has been &lt;a href="../linux/firejail/#ssh">whitelisted&lt;/a>&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">whitelist $XDG_RUNTIME_DIR/ssh-agent.socket
-&lt;/code>&lt;/pre>&lt;p>Add private key to agent&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-add &lt;span style="color:#e6db74">&amp;#39;private_key&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Verify config&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo service ddclient status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ddclient -query
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ddclient -daemon&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; -verbose -noquiet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enable Service&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo service ddclient status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="set-hostname" class=link_owner&gt;
+ Set Hostname
+ &lt;a href="#set-hostname" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo hostnamectl set-hostname whatever.example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Check for ignored files that are committed to git</title><link>https://notes.markridgwell.com/posts/git/finding-ignored-files/</link><pubDate>Mon, 21 Mar 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/git/finding-ignored-files/</guid><description>&lt;h1 id="check-for-ignored-files-that-are-checked-into-git" class=link_owner&gt;
+ Check for ignored files that are checked into git
+ &lt;a href="#check-for-ignored-files-that-are-checked-into-git" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git ls-files | grep -v server&lt;span style="color:#ae81ff"&gt;\.&lt;/span&gt;pfx | grep -v &lt;span style="color:#ae81ff"&gt;\.&lt;/span&gt;gitignore | git check-ignore --stdin -v --no-index
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>GPG - managing keys</title><link>https://notes.markridgwell.com/posts/gpg/managing-keys/</link><pubDate>Wed, 12 Jan 2022 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/gpg/managing-keys/</guid><description>&lt;h1 id="gpg" class=link_owner&gt;
+ GPG
+ &lt;a href="#gpg" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="list-keys" class=link_owner&gt;
+ List Keys
+ &lt;a href="#list-keys" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --list-keys
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="export-key" class=link_owner&gt;
+ Export Key
+ &lt;a href="#export-key" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;However, you may not want to bring all that trust data and lots of keys with you. If you&amp;rsquo;d just like to copy your keys over, first export them (as usual, we assume gpg is in your path):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --export-secret-keys -a keyid &amp;gt; my_private_key.asc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --export -a keyid &amp;gt; my_public_key.asc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible).&lt;/p&gt;</description></item><item><title>Geth</title><link>https://notes.markridgwell.com/posts/ethereum/geth/</link><pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ethereum/geth/</guid><description>&lt;h1 id="geth" class=link_owner&gt;
+ Geth
+ &lt;a href="#geth" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="node" class=link_owner&gt;
+ Node
+ &lt;a href="#node" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;list peers: &lt;code&gt;admin.peers&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Node Info: &lt;code&gt;admin.nodeInfo&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sealers" class=link_owner&gt;
+ Sealers
+ &lt;a href="#sealers" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;list sealers &lt;code&gt;clique.getSigners()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;list propositions: &lt;code&gt;clique.proposals&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;discard a proposition: &lt;code&gt;clique.discard(&amp;quot;0x1234234234234&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;add a new sealer: &lt;code&gt;clique.propose(&amp;quot;0x1234243214312&amp;quot;, true)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;remove a sealer: &lt;code&gt;clique.propose(&amp;quot;0x1234243214312&amp;quot;, false)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="generate-toml-file" class=link_owner&gt;
+ Generate toml file
+ &lt;a href="#generate-toml-file" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo &amp;gt; config.toml
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>SSH - Generating Keys</title><link>https://notes.markridgwell.com/posts/ssh/generating-keys/</link><pubDate>Sun, 26 Mar 2017 08:47:11 +0100</pubDate><guid>https://notes.markridgwell.com/posts/ssh/generating-keys/</guid><description>&lt;h1 id="ssh" class=link_owner&gt;
+ SSH
+ &lt;a href="#ssh" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="generate-an-elliptic-curve-key" class=link_owner&gt;
+ Generate an elliptic curve key
+ &lt;a href="#generate-an-elliptic-curve-key" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://blog.g3rt.nl/upgrade-your-ssh-keys.html"&gt;https://blog.g3rt.nl/upgrade-your-ssh-keys.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-keygen -o -a &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt; -t ed25519
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;e.g. using a large number of rounds&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-keygen -o -a &lt;span style="color:#ae81ff"&gt;1000000000&lt;/span&gt; -t ed25519 -f d:&lt;span style="color:#ae81ff"&gt;\t&lt;/span&gt;est_ed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="proxy-rdp-over-ssh" class=link_owner&gt;
+ Proxy RDP over ssh
+ &lt;a href="#proxy-rdp-over-ssh" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Start SSH:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh mark@sshbox -L 9000:machine-to-remote-to:3389
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;sshbox&amp;rsquo; is the SSH Proxy&lt;/li&gt;
+&lt;li&gt;9000 is the local port&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Connect:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mstsc /v:localhost:9000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="generate-a-key-compatible-with-teamcity" class=link_owner&gt;
+ Generate a key compatible with TeamCity
+ &lt;a href="#generate-a-key-compatible-with-teamcity" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Teamcity requires keys to be in a specific format&lt;/p&gt;</description></item></channel></rss>
