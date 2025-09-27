@@ -71,5 +71,5 @@ unsafe = true
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
 
-[[pagination]]
+[pagination]
 pagerSize = 10
