@@ -6,6 +6,10 @@ enableGitInfo = true
 
 disableKinds = ["taxonomy"]
 
+enableDarkMode = true
+time_format_blog = "Monday, January 02, 2006"
+time_format_default = "January 2, 2006"
+
 [outputs]
 home = ["HTML", "RSS","JSON"]
 
