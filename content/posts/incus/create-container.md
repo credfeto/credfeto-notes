@@ -41,3 +41,20 @@ install docker
 pacman -Syu
 pacman -S docker docker-compose docker-buildx
 ```
+
+
+## Live migration support
+
+```bash
+pacmah -S criu
+```
+
+## USB Support
+
+Needed to support USB devices.  
+
+Note - instances using USB devices cannot be migrated.
+
+```bash
+sudo pacman -S libusb qemu-hw-usb-host usbtools
+```
