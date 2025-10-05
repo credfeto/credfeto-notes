@@ -14,3 +14,6 @@ time_format_default = "January 2, 2006"
 home = ["HTML", "RSS","JSON"]
 
 
+[logo]
+lightMode = "images/navlogo.png"
+darkMode = "images/navlogo.png"
