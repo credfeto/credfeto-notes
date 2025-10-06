@@ -56,5 +56,5 @@ Needed to support USB devices.
 Note - instances using USB devices cannot be migrated.
 
 ```bash
-sudo pacman -S libusb qemu-hw-usb-host usbtools
+sudo pacman -S libusb qemu-hw-usb-host usbutils
 ```
