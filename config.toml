@@ -17,3 +17,7 @@ home = ["HTML", "RSS","JSON"]
 [logo]
 lightMode = "images/navlogo.png"
 darkMode = "images/navlogo.png"
+
+
+[params]
+fediCreator = "@mark@mastodon.markridgwell.com"
