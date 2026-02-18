@@ -24,7 +24,15 @@ will prompt for password
 ## Mount LVM
 
 ```bash
+sudo pvscan
+sudo vgscan --mknodes
 sudo lvscan
+```
+
+
+if volume not active
+```bash
+sudo vgchange -ay <VolumeGroupName>
 ```
 
 Get the device from the lvscan output
