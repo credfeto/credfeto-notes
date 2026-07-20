@@ -29,16 +29,35 @@
 <link rel="icon" type="image/png" href="{{ "images/favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "images/favicon.png" | absURL }}">
 <link rel="shortcut icon" href="{{ "images/favicon.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
 
 <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+
+{{- /* Light/dark --bg values from static/css/style.css, kept in sync by hand. */}}
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
 
 {{- if site.Params.enableDarkMode }}
 <script>
 (function () {
+  var LIGHT_BG = "#ffffff";
+  var DARK_BG = "#14161a";
+
+  function setThemeColor(theme) {
+    var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "theme-color");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", theme === "dark" ? DARK_BG : LIGHT_BG);
+  }
+
   try {
     var stored = localStorage.getItem("theme");
     if (stored === "light" || stored === "dark") {
       document.documentElement.setAttribute("data-theme", stored);
+      setThemeColor(stored);
     }
   } catch (e) {}
 })();

@@ -1,0 +1,15 @@
+{
+  "name": "Mark Ridgwell | Notes",
+  "short_name": "Notes",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
