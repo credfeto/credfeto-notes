@@ -10,10 +10,10 @@ tags:
   - Jest
   - Typescript
 ---
-# Webstorm - fixing jest
 
-When this error appears on opening new project
-```
+When this error appears when opening a new project:
+
+```text
   ● Test suite failed to run
 
     Jest encountered an unexpected token
@@ -37,4 +37,4 @@ When this error appears on opening new project
 
 Edit Run configuration and set the configuration file for jest to point to the one in the project:
 
-![image](https://user-images.githubusercontent.com/1020430/217805536-e6709b02-8785-4904-9d15-23dbba048f0d.png)
+![WebStorm run configuration with the jest config file path set](https://user-images.githubusercontent.com/1020430/217805536-e6709b02-8785-4904-9d15-23dbba048f0d.png)

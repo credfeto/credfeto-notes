@@ -10,22 +10,22 @@ tags:
   - Zoom
   - Background
 ---
-# Zoom Changing backgrounds
 
-## with flatpak zoom
+## With flatpak Zoom
 
-Select a custom background image in zoom UI
+Select a custom background image in the Zoom UI.
 
-in folder:
+In the folder:
 `~/.var/app/us.zoom.Zoom/.zoom/data/VirtualBkgnd_Custom`
 
-find the file with the name `{guid}`
+Find the file with the name `{guid}`.
 
-replace the file with a link
+Replace the file with a link:
+
 ```bash
 ln -s -f ~/Pictures/Backgrounds/dt-link.jpg {guid}
 ```
 
-use ``wallpaper`` script at login/logoff to change the image before zoom runs
+Use the ``wallpaper`` script at login/logoff to change the image before Zoom runs.
 
-See [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-write-a-script-to-change-zoom-background/)
+See [this FreeCodeCamp article](https://www.freecodecamp.org/news/how-to-write-a-script-to-change-zoom-background/) for more detail.

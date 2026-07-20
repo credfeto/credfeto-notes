@@ -11,16 +11,16 @@ tags:
   - SSH
   - Security
 ---
-# SSH
 
 ## Generate an elliptic curve key
 
-See [https://blog.g3rt.nl/upgrade-your-ssh-keys.html](https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
+See [this article on upgrading SSH keys](https://blog.g3rt.nl/upgrade-your-ssh-keys.html).
 
 ```bash
 ssh-keygen -o -a 100 -t ed25519
 ```
-e.g. using a large number of rounds
+
+For example, using a large number of rounds:
 
 ```bash
 ssh-keygen -o -a 1000000000 -t ed25519 -f d:\test_ed
@@ -35,6 +35,7 @@ ssh mark@sshbox -L 9000:machine-to-remote-to:3389
 ```
 
 Where:
+
 * 'sshbox' is the SSH Proxy
 * 9000 is the local port
 
@@ -44,20 +45,19 @@ Connect:
 mstsc /v:localhost:9000
 ```
 
-
 ## Generate a key compatible with TeamCity
 
-Teamcity requires keys to be in a specific format
+TeamCity requires keys to be in a specific format:
 
 ```bash
 ssh-keygen -t rsa -m PEM -f id_project
 ```
 
-
 ### Server Setup
 
-/etc/ssh/sshd_config.d/999-security.conf
-```ssshd_config
+Contents of `/etc/ssh/sshd_config.d/999-security.conf`:
+
+```sshd_config
 # Only allow latest SSH protocol
 Protocol 2
 
@@ -90,19 +90,21 @@ AllowTcpForwarding no
 ```
 
 ### User setup
-Enable SSHd agent
+
+Enable the sshd-agent service:
+
 ```bash
 systetmctl enable --user --now sshd-agent
 ```
 
-note if using firejail andd ssh-agent then make sure it has been [whitelisted](../linux/firejail/#ssh)
+Note: if using Firejail and ssh-agent, make sure it has been [whitelisted](../linux/firejail/#ssh):
 
 ```config
 whitelist $XDG_RUNTIME_DIR/ssh-agent.socket
 ```
 
-Add private key to agent
+Add the private key to the agent:
+
 ```bash
 ssh-add 'private_key'
 ```
-

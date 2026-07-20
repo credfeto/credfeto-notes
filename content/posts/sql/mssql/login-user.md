@@ -9,7 +9,7 @@ tags:
   - MSSQL
   - Security
 ---
-```
+
 ## Create Login to SQL Server
 
 ```sql

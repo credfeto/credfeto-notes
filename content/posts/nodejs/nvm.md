@@ -12,26 +12,26 @@ tags:
   - nvm
   - Typescript
 ---
-# Using Node Version Manager
 
 ## Install
+
 ```bash
 yay -Sy nvm
 ```
 
-## Install Latest node
+## Install the latest version of Node
 
 ```bash
 nvm install node
 ```
 
-## Install a specific version of node
+## Install a specific version of Node
 
 ```bash
 nvm install 18.9.0
 ```
 
-## Switch to a specific version of node
+## Switch to a specific version of Node
 
 ```bash
 nvm use 18.9.0

@@ -9,7 +9,6 @@ tags:
   - MSSQL
   - Security
 ---
-# Take DB offline
 
 ```sql
 USE [master]
