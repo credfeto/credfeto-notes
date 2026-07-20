@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{- $pages := .Pages.ByDate.Reverse }}
+{{- $paginator := .Paginate $pages 20 }}
+<ul class="post-list">
+  {{- range $paginator.Pages }}
+  {{ partial "post-list-item.html" . }}
+  {{- end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

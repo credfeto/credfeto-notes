@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="page-intro">
+  <h1>{{ site.Title }}</h1>
+  {{- with site.Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+</section>
+
+{{- $posts := (site.GetPage "posts").RegularPagesRecursive.ByDate.Reverse }}
+{{- $paginator := .Paginate $posts 15 }}
+<h2 class="section-heading">Recent posts</h2>
+<ul class="post-list">
+  {{- range $paginator.Pages }}
+  {{ partial "post-list-item.html" . }}
+  {{- end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

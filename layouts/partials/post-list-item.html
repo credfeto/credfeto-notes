@@ -1,0 +1,13 @@
+{{- /* Expects "." to be a regular Page (a post). */ -}}
+<li class="post-item">
+  <a class="post-item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <div class="post-item-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (or site.Params.time_format_blog "January 2, 2006") }}</time>
+    {{- with .GetTerms "categories" }}
+    <span class="post-item-terms">
+      {{- range . }}<a class="badge" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end -}}
+    </span>
+    {{- end }}
+  </div>
+  {{- with .Description }}<p class="post-item-desc">{{ . }}</p>{{ end }}
+</li>
