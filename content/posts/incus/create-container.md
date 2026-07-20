@@ -13,8 +13,6 @@ tags:
   - docker
   - container
 ---
-# Setting up a container
-
 
 ## Create a container
 
@@ -35,13 +33,12 @@ sudo incus launch images:archlinux <name> \
   -c boot.autostart: 'true'
 ```
 
-install docker
+Install Docker:
 
 ```bash
 pacman -Syu
 pacman -S docker docker-compose docker-buildx
 ```
-
 
 ## Live migration support
 
@@ -51,9 +48,9 @@ pacmah -S criu
 
 ## USB Support
 
-Needed to support USB devices.  
+Required to support USB devices.
 
-Note - instances using USB devices cannot be migrated.
+Note: instances using USB devices cannot be migrated.
 
 ```bash
 sudo pacman -S libusb qemu-hw-usb-host usbutils

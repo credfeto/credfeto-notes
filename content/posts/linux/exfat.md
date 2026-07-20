@@ -9,7 +9,6 @@ tags:
   - Exfat
   - Disks
 ---
-# Exfat
 
 ## Required packages
 
@@ -24,7 +23,6 @@ sudo apt install exfat-fuse exfatprogs
 ```bash
 pacman -S exfatprogs
 ```
-
 
 ## Formatting
 

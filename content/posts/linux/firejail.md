@@ -9,7 +9,6 @@ tags:
   - Sandbox
   - Firejail
 ---
-#  Configuring firejail
 
 ## Installing
 
@@ -25,22 +24,24 @@ yay -R firejail firejail-handler-extra firejail-handler-http firejail-pacman-hoo
 
 ## Excluding a program from firejail config
 
-edit ``/etc/firejail/firecfg.config`` and comment out the name of the program
+Edit ``/etc/firejail/firecfg.config`` and comment out the name of the program.
 
-note zoom normally needs removing as it has issues
+Note: Zoom normally needs removing, as it has issues.
 
 ## Special cases
 
 ### SSH
 
-~/.config/firejail/ssh.local
+Contents of `~/.config/firejail/ssh.local`:
+
 ```config
 whitelist ${RUNUSER}/ssh-agent.*
 ```
 
 ### Spectacle (Wayland)
 
-/etc/pacman.d/hooks/unjail-spectacle.hook
+Contents of `/etc/pacman.d/hooks/unjail-spectacle.hook`:
+
 ```config
 [Trigger]
 Operation = Upgrade

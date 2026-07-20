@@ -8,11 +8,10 @@ categories:
 tags:
   - DD
 ---
-# Cloning disk
 
 ## Cloning physical disk
 
-copy all on /dev/nvme0n1 to /dev/sda showing progress
+Copy everything on /dev/nvme0n1 to /dev/sda, showing progress:
 
 ```bash
 dd if=/dev/nvme0n1 of=/dev/sda bs=64k status=progress

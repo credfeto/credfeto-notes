@@ -14,11 +14,7 @@ tags:
   - users
 ---
 
-# systemd-homed
-
-## Create user
-
-## Update authorised SSH Keys for a user
+## Update authorised SSH keys for a user
 
 ```bash
 sudo sudo homectl update $USER --ssh-authorized-keys=@$HOME/.ssh/authorized_key

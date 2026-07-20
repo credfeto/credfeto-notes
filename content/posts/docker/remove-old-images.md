@@ -8,9 +8,8 @@ categories:
 tags:
   - Dokcer
 ---
-# Docker 
 
-## Remove unused images, containers and configuration
+## Remove unused images, containers, and configuration
 
 - all stopped containers
 - all networks not used by at least one container

@@ -14,13 +14,13 @@ tags:
   - socketsecurity
   - Typescript
 ---
-# Socket Security Cli
 
-Wrapper for NPM and NPX to check security of the packages on install
+A wrapper for npm and npx that checks the security of packages on install.
 
 ## Install
+
 ```bash
 npm install -g @socketsecurity/cli
 ```
 
-See also [Socket.dev]([https://docs.socket.dev/docs/socket-cli](https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this)https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this)
+See also [Socket.dev](https://docs.socket.dev/docs/socket-cli#how-can-i-get-my-hands-on-this).

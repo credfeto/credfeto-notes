@@ -8,9 +8,8 @@ categories:
 tags:
   - Keyboard
 ---
-#  Correct Keyboard layout
 
-[See](https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613)
+See [this gist](https://gist.github.com/keckelt/0ba90f8840e2903bfdc54c7e19ad4613) for more detail.
 
 ```bash
 xmodmap -e 'keycode 49 = grave'

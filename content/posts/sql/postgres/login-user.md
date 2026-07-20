@@ -1,5 +1,5 @@
 ---
-title: "Postgresql Granting access"
+title: "PostgreSQL Granting access"
 date: 2023-01-15T08:47:11+01:00
 description: Access to DB and server
 draft: false
@@ -10,7 +10,7 @@ tags:
   - Security
 ---
 
-## Create Login to SQL Server
+## Create a login role
 
 ```sql
 CREATE ROLE my_user LOGIN PASSWORD 'my_password';

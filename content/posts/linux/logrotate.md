@@ -8,21 +8,19 @@ categories:
 tags:
   - Logrotate
 ---
-#  Logrotate
 
-``logotate.conf`` by default is set up to rotate logs once a week and keep for 4 weeks.  Compression isn't enabled by 
-default.  This doesn't work well with small disks with services that are verbose with what is logged.  This sets the 
-default configuration so that it is better suited.
+By default, ``logrotate.conf`` rotates logs once a week and keeps them for 4 weeks, with compression disabled. This doesn't work well on small disks with services that log verbosely, so this sets a default configuration that's better suited to that case.
 
-note that per service configurations in /etc/logrotate.d/ may also need adjusting.
+Note that per-service configurations in /etc/logrotate.d/ may also need adjusting.
 
-See [ArchWiki](https://wiki.archlinux.org/title/Logrotate)
+See the [ArchWiki](https://wiki.archlinux.org/title/Logrotate) for more detail.
 
-note using a file 01-defaults in ``logrotate.d`` means that don't need to worry about updates rewriting the ``logrotate.conf`` file
+Note: using a file `01-defaults` in ``logrotate.d`` means you don't need to worry about updates rewriting the ``logrotate.conf`` file.
 
-/etc/logrotate.d/01-defaults:
+Contents of `/etc/logrotate.d/01-defaults`:
+
 ```text
-# rotate log files daily 
+# rotate log files daily
 daily
 
 # keep 2 weeks worth of backlogs
@@ -32,7 +30,7 @@ rotate 14
 size 10M
 
 # create new (empty) log files after rotating old ones
-create 
+create
 
 # uncomment this if you want your log files compressed
 compress

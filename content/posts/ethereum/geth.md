@@ -10,12 +10,11 @@ tags:
   - Ethereum
   - Blockchain
 ---
-# Geth
 
 ## Node
 
 * list peers: ``admin.peers``
-* Node Info: ``admin.nodeInfo``
+* node info: ``admin.nodeInfo``
 
 ## Sealers
 
@@ -25,8 +24,8 @@ tags:
 * add a new sealer: ``clique.propose("0x1234243214312", true)``
 * remove a sealer: ``clique.propose("0x1234243214312", false)``
 
-## Generate toml file
+## Generate a TOML file
 
-```
+```bash
 geth --datadir ./chain --nat extip:182.168.1.2 dumpconfig echo > config.toml
 ```

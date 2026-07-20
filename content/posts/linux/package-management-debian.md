@@ -10,10 +10,9 @@ tags:
   - debian
   - ubuntu
 ---
-# Package Management - Debian/Ubuntu
 
 ## Removing unused packages
 
-``` bash
+```bash
 apt autoremove
 ```

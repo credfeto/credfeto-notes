@@ -9,18 +9,18 @@ tags:
   - Wayland
   - Screenshot
 ---
-# Fixing spectable screenshot issues on Wayland
 
 ## Can't take screenshot with Spectacle
 
-
-```
+```text
 Screenshot request failed: "The process is not authorized to take a screenshot"
 qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
 ```
 
-fix: 
+The fix:
+
 ```bash
 rm ~/.local/share/applications/org.kde.spectacle.desktop
 ```
-then restart spectable
+
+Then restart Spectacle.
