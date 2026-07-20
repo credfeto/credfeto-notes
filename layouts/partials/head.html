@@ -18,9 +18,6 @@
 <meta property="og:image" content="{{ . | absURL }}">
 {{- end }}
 <meta name="twitter:card" content="summary">
-{{- with site.Params.fediCreator }}
-<meta name="fediverse:creator" content="{{ . }}">
-{{- end }}
 
 {{- range .AlternativeOutputFormats }}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
