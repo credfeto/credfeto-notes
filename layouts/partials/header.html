@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="{{ "/" | absURL }}">
+      {{- with site.Params.logo.lightMode }}
+      <img class="site-logo" src="{{ . | absURL }}" alt="" width="32" height="32">
+      {{- end }}
+      <span class="site-title">{{ site.Title }}</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <div class="site-nav">
+      <nav class="site-links" aria-label="Primary">
+        <a href="{{ "/posts/" | absURL }}">Posts</a>
+        <a href="{{ "/categories/" | absURL }}">Categories</a>
+        <a href="{{ "/tags/" | absURL }}">Tags</a>
+      </nav>
+
+      {{- if site.Params.enableDarkMode }}
+      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle dark mode">
+        <span aria-hidden="true">&#9789;</span>
+      </button>
+      {{- end }}
+    </div>
+  </div>
+</header>

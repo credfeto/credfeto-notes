@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ or site.Language.Lang `en` }}">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{{ partial "header.html" . }}
+<main id="main">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+<script src="{{ "js/theme-toggle.js" | absURL }}" defer></script>
+<script src="{{ "js/code-copy.js" | absURL }}" defer></script>
+</body>
+</html>

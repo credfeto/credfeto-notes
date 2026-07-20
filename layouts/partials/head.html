@@ -1,0 +1,65 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $siteTitle := site.Title }}
+{{- $title := $siteTitle }}
+{{- if not .IsHome }}{{ $title = printf "%s | %s" .Title $siteTitle }}{{ end }}
+<title>{{ $title }}</title>
+{{- $description := site.Params.description }}
+{{- if .Description }}{{ $description = .Description }}{{ end }}
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<meta property="og:site_name" content="{{ $siteTitle }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{- with site.Params.logo.lightMode }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+<meta name="twitter:card" content="summary">
+
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+{{- end }}
+
+{{- /* content/images/favicon.png is the single source icon; it publishes
+   as-is (no owning Page, so Hugo's image-resize pipeline can't touch it)
+   and every size just points at the same file — browsers scale it fine. */}}
+<link rel="icon" type="image/png" href="{{ "images/favicon.png" | absURL }}">
+<link rel="apple-touch-icon" href="{{ "images/favicon.png" | absURL }}">
+<link rel="shortcut icon" href="{{ "images/favicon.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
+<link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+
+{{- /* Light/dark --bg values from static/css/style.css, kept in sync by hand. */}}
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
+
+{{- if site.Params.enableDarkMode }}
+<script>
+(function () {
+  var LIGHT_BG = "#ffffff";
+  var DARK_BG = "#14161a";
+
+  function setThemeColor(theme) {
+    var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "theme-color");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", theme === "dark" ? DARK_BG : LIGHT_BG);
+  }
+
+  try {
+    var stored = localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") {
+      document.documentElement.setAttribute("data-theme", stored);
+      setThemeColor(stored);
+    }
+  } catch (e) {}
+})();
+</script>
+{{- end }}

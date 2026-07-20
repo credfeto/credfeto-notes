@@ -1,0 +1,19 @@
+# Cloudflare Pages header rules (same _headers syntax Netlify uses).
+# CSS/JS aren't fingerprinted (no Hugo asset pipeline), so cache
+# lifetimes here are moderate + revalidated rather than long +
+# immutable, to avoid masking future edits behind a stale cache.
+
+/css/*
+  Cache-Control: public, max-age=600, stale-while-revalidate=86400
+
+/js/*
+  Cache-Control: public, max-age=600, stale-while-revalidate=86400
+
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.xml
+  Cache-Control: public, max-age=0, must-revalidate

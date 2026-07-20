@@ -1,23 +1,17 @@
 baseURL = "https://notes.markridgwell.com/"
 title = "Mark Ridgwell | Notes"
 enableRobotsTXT = true
-theme = "compose"
 enableGitInfo = true
 
-disableKinds = ["taxonomy"]
+[outputs]
+home = ["HTML", "RSS"]
 
+[params]
+description = "Personal notes and cheatsheets on Linux, AWS, Docker, SQL, and more."
 enableDarkMode = true
 time_format_blog = "Monday, January 02, 2006"
 time_format_default = "January 2, 2006"
 
-[outputs]
-home = ["HTML", "RSS","JSON"]
-
-
-[logo]
+[params.logo]
 lightMode = "images/navlogo.png"
 darkMode = "images/navlogo.png"
-
-
-[params]
-fediCreator = "@mark@mastodon.markridgwell.com"

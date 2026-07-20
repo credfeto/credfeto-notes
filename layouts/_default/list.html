@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{- with .Content }}<div class="section-body">{{ . }}</div>{{ end }}
+
+{{- $pages := .RegularPagesRecursive.ByDate.Reverse }}
+{{- $paginator := .Paginate $pages 20 }}
+{{- if $pages }}
+<ul class="post-list">
+  {{- range $paginator.Pages }}
+  {{ partial "post-list-item.html" . }}
+  {{- end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{- else }}
+<p>Nothing here yet.</p>
+{{- end }}
+{{ end }}
