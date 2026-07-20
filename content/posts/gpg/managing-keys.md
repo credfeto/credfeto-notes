@@ -9,7 +9,6 @@ tags:
   - GPG
   - Security
 ---
-# GPG
 
 ## List Keys
 
@@ -26,9 +25,10 @@ gpg --export-secret-keys -a keyid > my_private_key.asc
 gpg --export -a keyid > my_public_key.asc
 ```
 
-Where keyid is your PGP Key ID, such as A1E732BB. Take the the two files, securely copy them to the new machine (it is unadvisable to ftp them or use plain-text protocols because even thought your private key there is encrypted with your passphrase, your passphrase is still the weakest link, and you want to avoid exposure to your private key wherever possible). 
+Where keyid is your PGP key ID, such as A1E732BB. Copy both files securely to the new machine — avoid FTP or other plain-text protocols, since even though the private key is encrypted with your passphrase, that passphrase is still the weakest link, and you want to minimise exposure of your private key wherever possible.
 
 ## Import Key
+
 ```bash
 gpg --import my_private_key.asc
 gpg --import my_public_key.asc

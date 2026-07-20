@@ -8,8 +8,6 @@ categories:
 tags:
   - Development
 ---
-# Check for ignored files that are checked into git
-
 
 ```bash
 git ls-files | grep -v server\.pfx | grep -v \.gitignore | git check-ignore --stdin -v --no-index
