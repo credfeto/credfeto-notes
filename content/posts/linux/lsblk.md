@@ -8,7 +8,8 @@ categories:
 tags:
   - Lsblk
 ---
-#  List block devices with mountpoints and labels.
+
+List block devices with mountpoints and labels:
 
 ```bash
 sudo lsblk -o name,mountpoint,label,size,uuid

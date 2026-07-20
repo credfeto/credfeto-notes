@@ -9,14 +9,15 @@ tags:
   - Dash
   - Bash
 ---
-#  Installing Dash
 
-Install the dash shell as default shell over bash on arch.
+Install the dash shell as the default shell over bash on Arch:
+
 ```bash
 yay -Sy dash dashbinsh
 ```
 
-Install script to check bash-isms in scripts that claim to be posix shell compatible.
+Install a script to check for bash-isms in scripts that claim to be POSIX shell compatible:
+
 ```bash
 yay -Sy checkbashisms
 ```

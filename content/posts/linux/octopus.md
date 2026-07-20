@@ -9,22 +9,22 @@ tags:
   - Octopus
   - Tendacle
 ---
-# Installing polling octopus tentacle on arch
 
-[See](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux)
-
+See [the Octopus documentation](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/linux) for more detail.
 
 ## Required packages
 
 * acl - for setfacl (should be installed for systemd already)
-* inetutils - for hostname 
+* inetutils - for hostname
+
 ```bash
 pacman -Sy acl inetutils
 ```
 
-
 ## Linux X64
-As root
+
+As root:
+
 ```bash
 wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle -O tentacle-linux_x64.tar.gz
 mkdir /opt/octopus
@@ -37,7 +37,9 @@ tar xvzf tentacle-linux_x65.tar.gz -C /opt/octopus
 ```
 
 ## Linux ARM64
-As root
+
+As root:
+
 ```bash
 wget https://octopus.com/downloads/latest/Linux_arm64TarGz/OctopusTentacle -O tentacle-linux_arm64.tar.gz
 mkdir /opt/octopus
@@ -49,7 +51,7 @@ tar xvzf tentacle-linux_arm64.tar.gz -C /opt/octopus
 /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
-## For each service 
+## For each service
 
 ```bash
 useradd <serviceuser>

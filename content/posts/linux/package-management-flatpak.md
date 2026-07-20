@@ -10,7 +10,6 @@ tags:
   - flatpak
   - flathub
 ---
-# Package Management - Flatpak
 
 ## Only allow flathub verified apps to run
 
@@ -19,7 +18,7 @@ flatpak remote-add --if-not-exists --subset=verified flathub-verified https://fl
 flatpak remote-delete flathub
 ```
 
-note when removing this will prompt to remove all installed apps 
+Note: removing this will prompt you to remove all installed apps.
 
 ## Allow whitelisted packages
 
@@ -30,9 +29,10 @@ sudo flatpak remote-add --if-not-exists --filter=/home/markr/work/personal/credf
 
 ## Downgrading flatpack packages
 
-[Based on](https://itsfoss.com/downgrade-flatpak-packages/)
+Based on [this article](https://itsfoss.com/downgrade-flatpak-packages/).
 
-Get versions of installed package
+Get versions of the installed package:
+
 ```bash
 flatpak remote-info --log flathub-verified us.zoom.Zoom
 ```
@@ -41,15 +41,16 @@ flatpak remote-info --log flathub-verified us.zoom.Zoom
 sudo flatpak update --commit=<commit_hash> <Application ID>
 ```
 
-
 ### Preventing package from being updated
 
-Mask package
+Mask the package:
+
 ```bash
 sudo flatpak mask us.zoom.Zoom
 ```
 
-Un-Mask package
+Unmask the package:
+
 ```bash
 sudo flatpak mask us.zoom.Zoom --remove
 ```
