@@ -1,9 +1,0 @@
-[submodule "themes/holy"]
-	path = themes/holy
-	url = https://github.com/serkodev/holy.git
-[submodule "themes/anubis"]
-	path = themes/anubis
-	url = https://github.com/mitrichius/hugo-theme-anubis.git
-[submodule "themes/compose"]
-	path = themes/compose
-	url = https://github.com/onweru/compose/
