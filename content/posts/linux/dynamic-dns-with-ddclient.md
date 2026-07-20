@@ -8,15 +8,14 @@ categories:
 tags:
   - Dynamic DNS
 ---
-# Dynamic DNS with ddclient
 
 ```bash
 sudo apt-get install ddclient libdata-validate-ip-perl libjson-any-perl net-tools
 ```
 
-Edit  /etc/ddclient.conf as:
+Edit /etc/ddclient.conf as follows:
 
-```
+```ini
 daemon=1800
 syslog=yes
 protocol=cloudflare
@@ -30,7 +29,7 @@ zone=example.com
 host.example.com
 ```
 
-Verify config
+Verify the config:
 
 ```bash
 sudo service ddclient status
@@ -38,7 +37,7 @@ sudo ddclient -query
 sudo ddclient -daemon=0 -verbose -noquiet
 ```
 
-Enable Service
+Enable the service:
 
 ```bash
 sudo service ddclient status
@@ -49,5 +48,3 @@ sudo service ddclient status
 ```bash
 sudo hostnamectl set-hostname whatever.example.com
 ```
-
-

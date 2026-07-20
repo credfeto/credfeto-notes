@@ -1,39 +1,38 @@
 ---
 title: "Configuring firewall with UFW"
 date: 2023-04-11T18:14:11+01:00
-description: Firewalll
+description: Firewall
 draft: false
 categories:
   - Linux
 tags:
   - Firewall
 ---
-#  Configuring firewall with UFW
 
-See [Also](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04)
+See [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04) for more detail.
 
-Set default policy
+Set the default policy:
 
 ```bash
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
 
-Allow SSH
+Allow SSH:
+
 ```bash
 sudo ufw allow ssh
 ```
 
-
-Enable
+Enable UFW:
 
 ```bash
 sudo ufw enable
 sudo systemctl enable --now ufw
 ```
 
+Check status:
 
-Status
 ```bash
 sudo ufw status verbose
 ```

@@ -14,9 +14,8 @@ tags:
   - xfs_growfs
   - btrfs
 ---
-# Extending partition
 
-See [Aws](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
+See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html).
 
 ## Resize partition
 
@@ -34,7 +33,7 @@ sudo resize2fs /dev/nvme0n1p1
 
 ### Resize XFS in a partition
 
-Where / is the mountpoint
+Where / is the mountpoint.
 
 ```bash
 sudo xfs_growfs -d /
@@ -42,7 +41,7 @@ sudo xfs_growfs -d /
 
 ### Resize BTRFS in a partition
 
-Where / is the mountpoint
+Where / is the mountpoint.
 
 ```bash
 sudo btrfs filesystem resize +10g /

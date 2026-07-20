@@ -11,11 +11,11 @@ tags:
   - Chrome
   - FireFox
 ---
-# Fixing spectable screenshot issues on Wayland
 
 ## Firefox
 
-edit ``/etc/profiles.d/wayland.md``
+Edit ``/etc/profiles.d/wayland.md``:
+
 ```bash
 #! /bin/bash
 
@@ -27,19 +27,20 @@ export MOZ_ENABLE_WAYLAND=1
 * Chrome: Go to ``chrome://flags#ozone-platform-hint``
 * Brave: Go to ``brave://flags#ozone-platform-hint``
 
-Switch "Preferred Ozone platform" to "Auto"
+Switch "Preferred Ozone platform" to "Auto".
 
 ## Discord
 
-Docs say change the launch command to use
+The docs say to change the launch command to:
 
 ```bash
 discord --enable-features=UseOzonePlatform --ozone-platform=wayland
 ```
 
-however gertting core dump
+However, this results in a core dump.
 
-Currently working 
+This currently works:
+
 ```bash
 discord --disable-gpu-sandbox
 ```
